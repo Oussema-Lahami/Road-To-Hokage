@@ -163,7 +163,7 @@ animations = [ {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": false,
 "name": "throw",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
@@ -184,7 +184,7 @@ position = Vector2( 2, 3.99997 )
 scale = Vector2( 2.22093, 2.22093 )
 frames = SubResource( 1 )
 animation = "throw"
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 25 )
