@@ -1,35 +1,49 @@
 extends KinematicBody2D
 
-export var speed = 600
+export var speed = 200
+var direction = Vector2(1,0)
+var velocity = Vector2.ZERO
 var screen_size = Vector2.ZERO
-
-
-
+const SHURIKEN = preload("res://shuriken.tscn")
 
 func _process(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
+	if Input.is_action_pressed("throw"):
+		$AnimatedSprite.play("throw")
 
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.stop()
- 
-	if velocity.x != 0:
-		$AnimatedSprite.animation = "right"
-		$AnimatedSprite.flip_v = false
-		$AnimatedSprite.flip_h = velocity.x < 0
-	elif velocity.y < 0:
-		$AnimatedSprite.animation = "up"
+func _physics_process(delta):
+	if Input.is_action_pressed("ui_right"):
+		$AnimatedSprite.play("right")
 		$AnimatedSprite.flip_h = false
-	elif velocity.y >0:
-		$AnimatedSprite.animation = "down"
-		$AnimatedSprite.flip_h = false
+		velocity.x = speed
+		if sign($Position2D.position.x) == -1:
+			$Position2D.position.x *= -1
+	elif Input.is_action_pressed("ui_left"):
+		$AnimatedSprite.play("right")
+		$AnimatedSprite.flip_h = true
+		velocity.x = -speed
+		if sign($Position2D.position.x) == 1:
+			$Position2D.position.x *= -1
+	elif Input.is_action_pressed("ui_up"):
+		$AnimatedSprite.play("up")
+		velocity.y = -speed
+		if sign($Position2D.position.y) == -1:
+			$Position2D.position.y *= -1
+	elif Input.is_action_pressed("ui_down"):
+		$AnimatedSprite.play("down")
+		velocity.y = speed
+		if sign($Position2D.position.x) == 1:
+			$Position2D.position.x *= -1
+	else :
+		$AnimatedSprite.play("stanceRight")
+		velocity.x = 0
+		velocity.y = 0
+		
+		
+	if Input.is_action_just_pressed("throw"):
+		$AnimatedSprite.play("throw")
+		var shuriken = SHURIKEN.instance()
+		if $AnimatedSprite.flip_h == true: 
+			shuriken.set_shuriken_direction(-1)
+		get_parent().add_child(shuriken)
+		shuriken.global_position = $Position2D.global_position
+	velocity = move_and_slide(velocity)
