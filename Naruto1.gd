@@ -10,9 +10,10 @@ var secondForm = 0
 var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn")
+const NARUTO3 = preload("res://naruto3.tscn")
 
 func _process(delta):
-	if Input.is_action_pressed("throw"):
+	if Input.is_action_pressed("throw") && secondForm < 1:
 		$AnimatedSprite.play("throw")
 	
 
@@ -38,15 +39,11 @@ func _physics_process(delta):
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
 	elif secondForm == 1 :
-		$AnimatedSprite.play("kyubistance")
+		$AnimatedSprite.visible = false
 	else :
 		$AnimatedSprite.play("stanceRight")
-	if Input.is_action_pressed("ui_right") && secondForm == 1:
-		$AnimatedSprite.play("kyubiForm")
-		$AnimatedSprite.flip_h = false
-	elif Input.is_action_pressed("ui_left") && secondForm == 1:
-		$AnimatedSprite.play("kyubiForm")
-		$AnimatedSprite.flip_h = true
+
+
 
 
 
@@ -73,7 +70,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("transform") && secondForm < 1:
 		secondForm = 1
 		$AnimatedSprite.visible = false
-		
 		if $AnimatedSprite.flip_h == true: 
 			new.set_form_direction()
 		get_parent().add_child(new)
@@ -82,5 +78,10 @@ func _physics_process(delta):
 
 
 func _on_Timer_timeout():
-	$AnimatedSprite.visible = true
 	new.delete()
+	$Timer.stop()
+	var naruto3 = NARUTO3.instance()
+	if $AnimatedSprite.flip_h == true:
+		naruto3.flip()
+	get_parent().add_child(naruto3)
+	naruto3.global_position = $Position2D2.global_position

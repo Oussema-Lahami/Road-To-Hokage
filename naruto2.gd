@@ -12,6 +12,6 @@ func set_form_direction():
 	$AnimatedSprite.flip_h = true
 
 func delete():
-	$AnimatedSprite.visible = false
+	queue_free()
 
 
