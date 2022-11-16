@@ -6,12 +6,15 @@ const FRICTION = 1000
 var velocity = Vector2.ZERO
 
 var direction = Vector2(1,0)
-
+var secondForm = 0
+var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
+const newForm = preload("res://naruto2.tscn")
 
 func _process(delta):
 	if Input.is_action_pressed("throw"):
 		$AnimatedSprite.play("throw")
+	
 
 func _physics_process(delta):
 	#player movement start
@@ -34,8 +37,17 @@ func _physics_process(delta):
 		$AnimatedSprite.play("down")
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
+	elif secondForm == 1 :
+		$AnimatedSprite.play("kyubistance")
 	else :
 		$AnimatedSprite.play("stanceRight")
+	if Input.is_action_pressed("ui_right") && secondForm == 1:
+		$AnimatedSprite.play("kyubiForm")
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed("ui_left") && secondForm == 1:
+		$AnimatedSprite.play("kyubiForm")
+		$AnimatedSprite.flip_h = true
+
 
 
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -49,7 +61,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity)
 
-	#throw shuriken option by pressing "c" 
+	#throw shuriken option by pressing "C" 
 	if Input.is_action_just_pressed("throw"):
 		$AnimatedSprite.play("throw")
 		var shuriken = SHURIKEN.instance()
@@ -57,3 +69,18 @@ func _physics_process(delta):
 			shuriken.set_shuriken_direction(-1)
 		get_parent().add_child(shuriken)
 		shuriken.global_position = $Position2D.global_position
+	# option to transform into second form animation by pressing "X"
+	if Input.is_action_just_pressed("transform") && secondForm < 1:
+		secondForm = 1
+		$AnimatedSprite.visible = false
+		
+		if $AnimatedSprite.flip_h == true: 
+			new.set_form_direction()
+		get_parent().add_child(new)
+		new.global_position = $Position2D2.global_position
+		$Timer.start()
+
+
+func _on_Timer_timeout():
+	$AnimatedSprite.visible = true
+	new.delete()
