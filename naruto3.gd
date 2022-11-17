@@ -5,7 +5,11 @@ const ACCELERATION = 500
 const FRICTION = 500
 var velocity = Vector2.ZERO
 
+
 func _physics_process(delta):
+	#throw a punch with the button "Y"
+	if Input.is_action_just_pressed("punch"):
+		$AnimatedSprite.play("shoot")
 	#player movement start
 	var input_vector = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
@@ -26,8 +30,9 @@ func _physics_process(delta):
 		$AnimatedSprite.play("move")
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
-	else :
+	elif !Input.is_action_pressed("punch") :
 		$AnimatedSprite.play("kyubistance")
+		
 	
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

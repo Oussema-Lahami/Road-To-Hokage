@@ -9,7 +9,7 @@ var direction = Vector2(1,0)
 var secondForm = 0
 var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
-const newForm = preload("res://naruto2.tscn")
+const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
 
 func _process(delta):
