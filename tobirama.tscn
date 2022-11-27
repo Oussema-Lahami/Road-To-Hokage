@@ -1,0 +1,119 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 2363, 50, 95 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 50, 2363, 50, 95 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 114, 2363, 56, 95 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 185, 2363, 59, 95 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 241, 2337, 59, 96 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 300, 2337, 59, 96 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 355, 2337, 77, 96 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 432, 2337, 77, 96 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 520, 2372, 76, 95 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 598, 2372, 60, 95 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 658, 2372, 60, 95 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 1012, 73, 77 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 73, 1012, 73, 77 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 146, 1012, 73, 77 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 219, 1012, 73, 77 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 292, 1012, 73, 77 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 365, 1012, 73, 77 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 23.0
+height = 40.0
+
+[node name="tobirama" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 359, 217 )
+frames = SubResource( 18 )
+animation = "attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 359, 223 )
+shape = SubResource( 19 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 357, 215 )
