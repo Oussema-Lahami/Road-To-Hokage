@@ -145,6 +145,11 @@ region = Rect2( 259, 682, 37, 62 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "down",
@@ -183,7 +188,7 @@ script = ExtResource( 3 )
 position = Vector2( 2, 3.99997 )
 scale = Vector2( 2.22093, 2.22093 )
 frames = SubResource( 1 )
-animation = "down"
+animation = "New Anim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 25 )
