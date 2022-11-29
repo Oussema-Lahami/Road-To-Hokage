@@ -6,6 +6,7 @@ const FRICTION = 500
 var velocity = Vector2.ZERO
 
 
+
 func _physics_process(delta):
 	#throw a punch with the button "Y"
 	if Input.is_action_just_pressed("punch"):

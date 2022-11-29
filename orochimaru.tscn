@@ -275,8 +275,7 @@ height = 48.0
 position = Vector2( 300, 170 )
 frames = SubResource( 18 )
 animation = "down"
-frame = 12
-playing = true
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 306, 178 )

@@ -67,7 +67,7 @@ position = Vector2( 332, 247 )
 shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 502, 240 )
+position = Vector2( 514, 234 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

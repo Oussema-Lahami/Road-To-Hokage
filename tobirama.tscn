@@ -1,6 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
+[ext_resource path="res://tobirama.gd" type="Script" id=2]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://playerDetectionZone.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -104,18 +107,33 @@ animations = [ {
 radius = 23.0
 height = 40.0
 
+[sub_resource type="CircleShape2D" id=20]
+radius = 169.145
+
 [node name="tobirama" type="KinematicBody2D"]
+position = Vector2( 109, 107 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 359, 217 )
+position = Vector2( 35, 48 )
 frames = SubResource( 18 )
-animation = "attack"
-frame = 1
-playing = true
+animation = "run"
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 359, 223 )
+position = Vector2( 25, 35 )
 shape = SubResource( 19 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 357, 215 )
+position = Vector2( 22, 31 )
+
+[node name="playerDetectionZone" parent="." instance=ExtResource( 4 )]
+position = Vector2( 17, 32 )
+
+[node name="CollisionShape2D" parent="playerDetectionZone" index="0"]
+position = Vector2( 20, 11 )
+shape = SubResource( 20 )
+
+[node name="Stats" parent="." instance=ExtResource( 3 )]
+
+[editable path="playerDetectionZone"]

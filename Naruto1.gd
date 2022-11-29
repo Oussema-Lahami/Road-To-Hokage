@@ -12,9 +12,14 @@ const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
 
+var throwtimer = 0
+
 func _process(delta):
-	if Input.is_action_pressed("throw") && secondForm < 1:
+	if Input.is_action_just_pressed("throw") && secondForm < 1:
 		$AnimatedSprite.play("throw")
+	
+	if throwtimer > 0:
+		throwtimer -= delta
 	
 
 func _physics_process(delta):
@@ -40,7 +45,7 @@ func _physics_process(delta):
 			$Position2D.position.x *= -1
 	elif secondForm == 1 :
 		$AnimatedSprite.visible = false
-	else :
+	elif (not $AnimatedSprite.animation == "throw") or throwtimer <= 0:
 		$AnimatedSprite.play("stanceRight")
 
 
@@ -59,8 +64,9 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 	#throw shuriken option by pressing "C" 
-	if Input.is_action_just_pressed("throw"):
+	if Input.is_action_just_pressed("throw") and $AnimatedSprite.visible == true :
 		$AnimatedSprite.play("throw")
+		throwtimer = 0.1
 		var shuriken = SHURIKEN.instance()
 		if $AnimatedSprite.flip_h == true: 
 			shuriken.set_shuriken_direction(-1)

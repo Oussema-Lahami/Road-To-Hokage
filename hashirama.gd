@@ -9,7 +9,7 @@ func _physics_process(delta):
 		$Timer.start()
 		$AnimatedSprite.play("default")
 
-	
+
 
 
 func _on_Timer_timeout():
