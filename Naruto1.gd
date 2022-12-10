@@ -76,6 +76,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("transform") && secondForm < 1:
 		secondForm = 1
 		$AnimatedSprite.visible = false
+		$CollisionShape2D.disabled = true
 		if $AnimatedSprite.flip_h == true: 
 			new.set_form_direction()
 		get_parent().add_child(new)

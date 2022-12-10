@@ -510,7 +510,8 @@ tile_data = PoolIntArray( -131022, 0, 0, -131021, 0, 1, -131020, 0, 1, -131019, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Naruto1" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 313, 464 )
+position = Vector2( 210, 465 )
+collision_layer = 2
 
 [node name="Bush" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 220, 102 )
@@ -548,8 +549,11 @@ position = Vector2( 863, 321 )
 [node name="Bush8" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 802, 196 )
 
-[node name="hashirama" parent="." instance=ExtResource( 9 )]
-position = Vector2( 263, 243 )
+[node name="hashirama2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 706, 435 )
+
+[node name="hashirama3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 756, 112 )
 
 [node name="tobirama" parent="." instance=ExtResource( 7 )]
 position = Vector2( 122, 238 )

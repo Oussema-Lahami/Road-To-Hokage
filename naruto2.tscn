@@ -67,6 +67,7 @@ height = 46.3376
 
 [node name="naruto2" type="KinematicBody2D"]
 position = Vector2( 275, 291 )
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

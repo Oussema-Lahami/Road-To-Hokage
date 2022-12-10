@@ -5,7 +5,6 @@ var attack = false
 var dragon = DRAGON.instance()
 
 func _on_Timer_timeout():
-	
 	if $AnimatedSprite.flip_h == true: 
 		dragon.flip()
 		get_parent().add_child(dragon)
@@ -17,10 +16,10 @@ func _on_Timer_timeout():
 		dragon.play()
 
 func _on_attack_body_entered(body):
-	if attack == true:
-		$Timer.start()
-		$AnimatedSprite.play("default")
-	attack = true
+	$Timer.start()
+	$AnimatedSprite.play("default")
+
+
 
 
 func _on_attack_body_exited(body):
