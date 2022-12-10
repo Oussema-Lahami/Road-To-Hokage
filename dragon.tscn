@@ -59,6 +59,11 @@ animations = [ {
 "loop": false,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=12]
@@ -71,6 +76,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 6, -9 )
