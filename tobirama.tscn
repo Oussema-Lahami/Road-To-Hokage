@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://tobirama.gd" type="Script" id=2]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://playerDetectionZone.tscn" type="PackedScene" id=4]
@@ -117,8 +117,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 35, 48 )
 frames = SubResource( 18 )
-animation = "run"
-frame = 5
+animation = "attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 35 )
@@ -131,7 +130,7 @@ position = Vector2( 22, 31 )
 position = Vector2( 17, 32 )
 
 [node name="CollisionShape2D" parent="playerDetectionZone" index="0"]
-position = Vector2( 20, 11 )
+position = Vector2( 10, 13 )
 shape = SubResource( 20 )
 
 [node name="Stats" parent="." instance=ExtResource( 3 )]

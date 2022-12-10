@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sasuke.png-5c31c10fa77c17dac52289c9d7f14609.stex"
+path="res://.import/tiles_packed.png-54edfcbeb615ab7bbadd9a2b0c2405a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Level1/sasuke.png"
-dest_files=[ "res://.import/sasuke.png-5c31c10fa77c17dac52289c9d7f14609.stex" ]
+source_file="res://assets/map/tiles_packed.png"
+dest_files=[ "res://.import/tiles_packed.png-54edfcbeb615ab7bbadd9a2b0c2405a7.stex" ]
 
 [params]
 

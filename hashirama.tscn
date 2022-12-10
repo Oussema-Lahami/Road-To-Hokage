@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://hashirama.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -55,22 +55,37 @@ animations = [ {
 radius = 17.0
 height = 54.0
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 183.134
+
 [node name="hashirama" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 330, 244 )
+position = Vector2( 326, 244 )
 frames = SubResource( 9 )
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 332, 247 )
 shape = SubResource( 10 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 514, 234 )
+position = Vector2( 531, 237 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( 139, 225 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="attack" type="Area2D" parent="."]
+position = Vector2( 327, 249 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( 8, -6 )
+shape = SubResource( 11 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]

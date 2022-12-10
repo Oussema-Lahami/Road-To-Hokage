@@ -13,7 +13,7 @@ enum{
 }
 
 
-var state = CHASE
+var state = IDLE
 var velocity = Vector2.ZERO
 
 onready var playerDetectionZone = $PlayerDetectionZone
@@ -25,7 +25,6 @@ func _physics_process(delta):
 			
 			IDLE:
 				velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-				seek_player()
 			WANDER:
 				pass
 			CHASE:
@@ -37,9 +36,6 @@ func _physics_process(delta):
 					
 	velocity = move_and_slide(velocity)
 	
-func seek_player():
-	if playerDetectionZone.can_see_player():
-		state = CHASE
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=2]
 
-[ext_resource path="res://enemies/Level1/KBE_Orochimaru.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/Level1/KBE_Orochimaru.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
@@ -275,7 +275,8 @@ height = 48.0
 position = Vector2( 300, 170 )
 frames = SubResource( 18 )
 animation = "down"
-frame = 11
+frame = 12
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 306, 178 )

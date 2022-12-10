@@ -12,4 +12,4 @@ func _ready():
 
 
 func flip():
-	$AnimatedSprite.flip_h
+	$AnimatedSprite.flip_h = true
