@@ -274,6 +274,7 @@ height = 48.0
 radius = 195.064
 
 [node name="orochimaru" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
