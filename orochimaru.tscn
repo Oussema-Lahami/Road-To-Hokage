@@ -1,6 +1,7 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/KBE_Orochimaru.png" type="Texture" id=1]
+[ext_resource path="res://orochimaru.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
@@ -269,17 +270,30 @@ animations = [ {
 radius = 20.0
 height = 48.0
 
+[sub_resource type="CircleShape2D" id=52]
+radius = 195.064
+
 [node name="orochimaru" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 300, 170 )
 frames = SubResource( 18 )
 animation = "down"
-frame = 12
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 306, 178 )
 shape = SubResource( 51 )
 
 [node name="Position2D" type="Position2D" parent="."]
+
+[node name="attack" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( 287, 170 )
+shape = SubResource( 52 )
+
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
