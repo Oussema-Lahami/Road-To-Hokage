@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Naruto1.tscn" type="PackedScene" id=2]
@@ -485,6 +485,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="GDScript" id=50]
+script/source = "extends Camera2D
+"
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -516,6 +520,7 @@ collision_layer = 2
 [node name="Camera2D" type="Camera2D" parent="YSort/Naruto1"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
+script = SubResource( 50 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 220, 102 )
@@ -642,13 +647,27 @@ position = Vector2( 756, 112 )
 
 [node name="tobirama" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 486, -22 )
-script = null
+
+[node name="hashirama" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 539, -339 )
+
+[node name="orochimaru4" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2295, -156 )
+
+[node name="orochimaru" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 2327, 522 )
 
 [node name="orochimaru2" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 319, 427 )
 
 [node name="orochimaru3" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 489, -98 )
+
+[node name="orochimaru5" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 1374, 111 )
+
+[node name="tobirama4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 2008, 319 )
 
 [node name="tobirama2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2156, 831 )
