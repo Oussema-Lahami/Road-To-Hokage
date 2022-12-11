@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Naruto1.tscn" type="PackedScene" id=2]
@@ -485,10 +485,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
-[sub_resource type="GDScript" id=50]
-script/source = "extends Camera2D
-"
-
 [node name="Level1" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -516,11 +512,6 @@ tile_data = PoolIntArray( -917514, 0, 0, -917513, 0, 1, -917512, 0, 1, -917511, 
 [node name="Naruto1" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 210, 465 )
 collision_layer = 2
-
-[node name="Camera2D" type="Camera2D" parent="YSort/Naruto1"]
-current = true
-zoom = Vector2( 0.4, 0.4 )
-script = SubResource( 50 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 7, 89 )
