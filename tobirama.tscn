@@ -120,7 +120,7 @@ frames = SubResource( 18 )
 animation = "attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 25, 35 )
+position = Vector2( 32, 52 )
 shape = SubResource( 19 )
 
 [node name="Position2D" type="Position2D" parent="."]
