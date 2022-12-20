@@ -70,7 +70,11 @@ func _physics_process(delta):
 		throwtimer = 0.1
 		var shuriken = SHURIKEN.instance()
 		if $AnimatedSprite.flip_h == true: 
-			shuriken.set_shuriken_direction(-1)
+			shuriken.set_shuriken_direction(Vector2(-1 , -1))
+		if Input.is_action_pressed("ui_up"):
+			shuriken.up = true
+		if Input.is_action_pressed("ui_down"):
+			shuriken.down = true
 		get_parent().add_child(shuriken)
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
