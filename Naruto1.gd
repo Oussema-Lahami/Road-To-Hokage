@@ -7,21 +7,22 @@ const FRICTION = 1000
 var velocity = Vector2.ZERO
 
 var direction = Vector2(1,0)
-var secondForm = 0
+var secondForm = false
 var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
 
 var throwtimer = 0
+var naruto3 = NARUTO3.instance()
 
 func _process(delta):
-	if Input.is_action_just_pressed("throw") && secondForm < 1:
+	if Input.is_action_just_pressed("throw") && !secondForm:
 		$AnimatedSprite.play("throw")
 	
 	if throwtimer > 0:
 		throwtimer -= delta
-	
+
 
 func _physics_process(delta):
 	#player movement start
@@ -44,7 +45,7 @@ func _physics_process(delta):
 		$AnimatedSprite.play("down")
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
-	elif secondForm == 1 :
+	elif secondForm :
 		$AnimatedSprite.visible = false
 	elif (not $AnimatedSprite.animation == "throw") or throwtimer <= 0:
 		$AnimatedSprite.play("stanceRight")
@@ -78,21 +79,26 @@ func _physics_process(delta):
 		get_parent().add_child(shuriken)
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
-	if Input.is_action_just_pressed("transform") && secondForm < 1:
-		secondForm = 1
+	if Input.is_action_just_pressed("transform") && !secondForm:
+		secondForm = true
 		$AnimatedSprite.visible = false
-		$CollisionShape2D.disabled = true
 		if $AnimatedSprite.flip_h == true: 
 			new.set_form_direction()
 		get_parent().add_child(new)
 		new.global_position = $Position2D2.global_position
 		$Timer.start()
-
+	# option to go back to first form after transforming by pressing "Q"
+	if Input.is_action_just_pressed("goBack") && secondForm :
+		secondForm = false
+		$AnimatedSprite.visible = true
+		$CollisionShape2D.disabled = false
+		$Camera2D.current = true
+		$Position2D2.global_position = naruto3.global_position
+		naruto3.queue_free()
 
 func _on_Timer_timeout():
 	new.delete()
 	$Timer.stop()
-	var naruto3 = NARUTO3.instance()
 	if $AnimatedSprite.flip_h == true:
 		naruto3.flip()
 	get_parent().add_child(naruto3)
