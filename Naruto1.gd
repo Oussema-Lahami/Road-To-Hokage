@@ -74,7 +74,9 @@ func _physics_process(delta):
 			shuriken.set_shuriken_direction(Vector2(-1 , -1))
 		if Input.is_action_pressed("ui_up"):
 			shuriken.up = true
+			shuriken.down = false
 		if Input.is_action_pressed("ui_down"):
+			shuriken.up = true
 			shuriken.down = true
 		get_parent().add_child(shuriken)
 		shuriken.global_position = $Position2D.global_position
