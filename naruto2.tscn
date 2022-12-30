@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://naruto2.gd" type="Script" id=1]
 [ext_resource path="res://assets/naruto2/Naruto02.png" type="Texture" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -74,6 +75,7 @@ script = ExtResource( 1 )
 current = true
 zoom = Vector2( 0.4, 0.4 )
 smoothing_enabled = true
+script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )

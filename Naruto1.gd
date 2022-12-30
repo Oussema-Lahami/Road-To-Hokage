@@ -82,6 +82,7 @@ func _physics_process(delta):
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
 	if Input.is_action_just_pressed("transform") && !secondForm:
+		new.get_node("Camera2D").starting()
 		secondForm = true
 		$AnimatedSprite.visible = false
 		if $AnimatedSprite.flip_h == true: 
@@ -91,6 +92,7 @@ func _physics_process(delta):
 		$Timer.start()
 	# option to go back to first form after transforming by pressing "Q"
 	if Input.is_action_just_pressed("goBack") && secondForm :
+		get_node("Camera2D").starting()
 		secondForm = false
 		$AnimatedSprite.visible = true
 		$CollisionShape2D.disabled = false
