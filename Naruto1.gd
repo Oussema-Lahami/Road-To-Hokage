@@ -12,7 +12,9 @@ var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
+const SMOKE = preload("res://smoke.tscn")
 
+var smoke = SMOKE.instance()
 var throwtimer = 0
 var naruto3 = NARUTO3.instance()
 
@@ -82,6 +84,10 @@ func _physics_process(delta):
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
 	if Input.is_action_just_pressed("transform") && !secondForm:
+		add_child(smoke)
+		smoke.get_node("Position2D").position = $Position2D2.position
+		smoke.set_z_index(1000)
+		smoke.play()
 		new.get_node("Camera2D").starting()
 		secondForm = true
 		$AnimatedSprite.visible = false
@@ -92,6 +98,10 @@ func _physics_process(delta):
 		$Timer.start()
 	# option to go back to first form after transforming by pressing "Q"
 	if Input.is_action_just_pressed("goBack") && secondForm :
+		add_child(smoke)
+		smoke.get_node("Position2D").position = $Position2D2.position
+		smoke.set_z_index(1000)
+		smoke.play()
 		get_node("Camera2D").starting()
 		secondForm = false
 		$AnimatedSprite.visible = true
