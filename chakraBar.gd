@@ -12,4 +12,4 @@ func _on_max_health_updated(max_health):
 
 
 func _on_Timer_timeout():
-	_on_health_updated(health_over.value - 10 , 5)
+	_on_health_updated(health_over.value - 5 , 5)
