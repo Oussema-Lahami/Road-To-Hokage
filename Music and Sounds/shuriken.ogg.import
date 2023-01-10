@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shuriken.ogg-dd33796cf1d2b4f34a99342ab62b8f25.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/shuriken.ogg"
+dest_files=[ "res://.import/shuriken.ogg-dd33796cf1d2b4f34a99342ab62b8f25.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
