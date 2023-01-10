@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Naruto1.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://world/Grass.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Music and Sounds/Naruto_ Ultimate Ninja 2 - _Training Field & Memorial Stone_ [1080p]-[onlinevideoconverter.com].mp3" type="AudioStream" id=13]
 [ext_resource path="res://world/Grass2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Music and Sounds/Explosion1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Music and Sounds/Kage Bunshin no Jutsu Naruto SOUND EFFECT.mp3" type="AudioStream" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -495,6 +497,9 @@ extents = Vector2( 38, 56.5 )
 [node name="Level1" type="Node2D"]
 script = ExtResource( 11 )
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 141 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1412, 352 )
 scale = Vector2( 1.46469, 1.5176 )
@@ -518,7 +523,7 @@ tile_data = PoolIntArray( -917514, 0, 0, -917513, 0, 1, -917512, 0, 1, -917511, 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Naruto1" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 210, 465 )
+position = Vector2( -22, 135 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 7, 89 )
@@ -823,31 +828,34 @@ margin_right = 42.0
 margin_bottom = 401.0
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue"]
-margin_left = 5.0
-margin_top = 160.0
-margin_right = 62.0
-margin_bottom = 197.0
+margin_left = -162.0
+margin_top = 54.0
+margin_right = -105.0
+margin_bottom = 91.0
 color = Color( 0.576471, 0.47451, 0.27451, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
 margin_left = -59.0
 margin_top = -8.0
 margin_right = 126.0
-margin_bottom = 43.0
+margin_bottom = 142.0
 color = Color( 0.396078, 0.415686, 0.0980392, 1 )
 
 [node name="Label" type="Label" parent="Dialogue/ColorRect"]
 margin_left = -57.0
 margin_top = -6.0
 margin_right = 128.0
-margin_bottom = 42.0
+margin_bottom = 127.0
 text = "Hey Naruto,
 You should beat all enemies 
-to pass this level"
+to pass this level. Some of them will try to catch you , the others have their tricks. See you on the other side son !"
 valign = 1
+autowrap = true
 
 [node name="JirayaArea" type="Area2D" parent="."]
 position = Vector2( 2, 361 )
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JirayaArea"]
 position = Vector2( 16, 108.5 )
@@ -855,13 +863,30 @@ shape = SubResource( 50 )
 
 [node name="Jiraya" parent="." instance=ExtResource( 10 )]
 position = Vector2( -315, 216 )
+collision_layer = 0
+collision_mask = 2
 
 [node name="song" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 54 )
 stream = ExtResource( 13 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="SmokeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = 15.016
+mix_target = 1
+
+[node name="starting" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1, 42 )
+stream = ExtResource( 16 )
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="body_entered" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/roadtohokage-resized.png-f0f3981162b77ae1a52e1d28bc7a7e86.stex"
+path="res://.import/roadtohokage-resized.png-fd9c9d3c146b058bbda3feba058e4851.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Intro/roadtohokage-resized.png"
-dest_files=[ "res://.import/roadtohokage-resized.png-f0f3981162b77ae1a52e1d28bc7a7e86.stex" ]
+source_file="res://roadtohokage-resized.png"
+dest_files=[ "res://.import/roadtohokage-resized.png-fd9c9d3c146b058bbda3feba058e4851.stex" ]
 
 [params]
 

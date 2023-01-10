@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Many-Nights.ogg-731bfea018029b5cbfd024e7436590e2.oggstr"
+path="res://.import/Many-Nights.ogg-18a01af89ccb156732797ff3b2c07db7.oggstr"
 
 [deps]
 
-source_file="res://Intro/Many-Nights.ogg"
-dest_files=[ "res://.import/Many-Nights.ogg-731bfea018029b5cbfd024e7436590e2.oggstr" ]
+source_file="res://Many-Nights.ogg"
+dest_files=[ "res://.import/Many-Nights.ogg-18a01af89ccb156732797ff3b2c07db7.oggstr" ]
 
 [params]
 

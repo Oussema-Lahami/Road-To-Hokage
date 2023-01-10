@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kage Bunshin no Jutsu Naruto SOUND EFFECT.mp3-077c8cb84c5b40e1d27e3845e16998c2.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Kage Bunshin no Jutsu Naruto SOUND EFFECT.mp3"
+dest_files=[ "res://.import/Kage Bunshin no Jutsu Naruto SOUND EFFECT.mp3-077c8cb84c5b40e1d27e3845e16998c2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -7,7 +7,7 @@ func _ready():
 
 func _on_JirayaArea_body_entered(_body):
 	$AnimatedSprite.play("default")
-	#$Dialogue/ColorRect/whatsapp.play()
+	$Dialogue/ColorRect/whatsapp.play()
 	get_parent().get_node("Dialogue").visible = true
 
 func _on_JirayaArea_body_exited(_body):
