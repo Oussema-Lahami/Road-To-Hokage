@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/naruto2/Naruto (2).png" type="Texture" id=1]
 [ext_resource path="res://naruto3.gd" type="Script" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://chakraBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Chakra text.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 4
@@ -148,6 +149,15 @@ animations = [ {
 radius = 17.4282
 height = 30.1051
 
+[sub_resource type="RayShape2D" id=63]
+length = 24.4187
+
+[sub_resource type="Animation" id=62]
+resource_name = "New Anim"
+
+[sub_resource type="RectangleShape2D" id=64]
+extents = Vector2( 22.0026, 18.7335 )
+
 [node name="naruto3" type="KinematicBody2D"]
 position = Vector2( 211, 465 )
 scale = Vector2( 0.75, 0.75 )
@@ -176,11 +186,40 @@ shape = SubResource( 49 )
 position = Vector2( 0, 11 )
 
 [node name="Chakra text" parent="." instance=ExtResource( 5 )]
-position = Vector2( -444, -160 )
+position = Vector2( -38.6666, -46.6666 )
 
 [node name="chakraBar" parent="." instance=ExtResource( 4 )]
-margin_left = -450.667
-margin_top = -140.0
-margin_right = -386.667
-margin_bottom = -100.0
+margin_left = -49.3333
+margin_top = -74.6666
+margin_right = 14.6667
+margin_bottom = -34.6666
 rect_scale = Vector2( 2, 2 )
+
+[node name="HitboxHand" type="Position2D" parent="."]
+position = Vector2( 37.3333, 4 )
+rotation = 0.0213609
+scale = Vector2( 0.73763, 0.455705 )
+
+[node name="HandHitbox" parent="HitboxHand" instance=ExtResource( 6 )]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HitboxHand/HandHitbox" index="0"]
+position = Vector2( 5.26904, 28.9019 )
+rotation = -1.55465
+scale = Vector2( -3.01962, 2.23736 )
+shape = SubResource( 63 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 62 )
+
+[node name="worldhitbox" parent="." instance=ExtResource( 6 )]
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="worldhitbox" index="0"]
+position = Vector2( 24.1596, 22.0724 )
+rotation = -1.49818
+scale = Vector2( 1, 1 )
+shape = SubResource( 64 )
+
+[editable path="HitboxHand/HandHitbox"]
+[editable path="worldhitbox"]
