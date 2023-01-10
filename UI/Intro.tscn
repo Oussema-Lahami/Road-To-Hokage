@@ -302,21 +302,24 @@ margin_top = -4.0
 margin_right = 1503.0
 margin_bottom = 718.0
 custom_fonts/font = ExtResource( 3 )
-text = "Keys"
+text = "Keys To Play The Game"
 align = 1
 percent_visible = 0.0
 
 [node name="WASD" type="Label" parent="."]
+margin_left = 23.0
 margin_top = 69.0
-margin_right = 781.0
+margin_right = 436.0
 margin_bottom = 129.0
 custom_fonts/font = ExtResource( 3 )
-text = "    W     A    S    D"
+text = " W  A  S  D
+ C : Throw Shuriken
+ X: Transform to KyubiForm
+ Q:transform Back to Normal Naruto"
 valign = 1
 percent_visible = 0.0
 
 [node name="Arrows" type="YSort" parent="."]
-visible = false
 
 [node name="Up" type="Sprite" parent="Arrows"]
 position = Vector2( 64, 57.5 )
