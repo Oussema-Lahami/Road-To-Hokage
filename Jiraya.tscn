@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Jiraya/1.png" type="Texture" id=1]
 [ext_resource path="res://Jiraya.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/Jiraya/15.png" type="Texture" id=6]
 [ext_resource path="res://assets/Jiraya/0.png" type="Texture" id=7]
 [ext_resource path="res://assets/Jiraya/5.png" type="Texture" id=8]
+[ext_resource path="res://Music and Sounds/jiraiya-words-talk-to-others_rk1TobcC.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Music and Sounds/Naruto_ Ultimate Ninja 2 - _Training Field & Memorial Stone_ [1080p]-[onlinevideoconverter.com].mp3" type="AudioStream" id=10]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -21,8 +23,8 @@ animations = [ {
 "name": "Teleport",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
@@ -68,6 +70,7 @@ rotation = 1.57079
 shape = SubResource( 11 )
 
 [node name="Dialogue" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -87,6 +90,19 @@ margin_bottom = 14.0
 align = 1
 valign = 1
 
+[node name="whatsapp" type="AudioStreamPlayer2D" parent="Dialogue/ColorRect"]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="pst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 13.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="JirayaArea" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="." method="_on_attack_body_exited"]
+[connection signal="finished" from="Dialogue/ColorRect/whatsapp" to="." method="_on_whatsapp_finished"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

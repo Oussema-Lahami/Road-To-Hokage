@@ -25,3 +25,7 @@ func _on_attack_body_entered(body):
 func _on_attack_body_exited(body):
 	dragon.reset()
 	$AnimatedSprite.play("idle")
+
+
+#func _on_Hurtbox_area_entered(area):
+#	queue_free()
