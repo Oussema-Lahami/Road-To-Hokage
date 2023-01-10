@@ -22,3 +22,7 @@ func flip_right():
 	
 func flip_up():
 	$AnimatedSprite.animation = "up"
+
+
+func _on_Hurtbox_area_entered(area):
+	queue_free()

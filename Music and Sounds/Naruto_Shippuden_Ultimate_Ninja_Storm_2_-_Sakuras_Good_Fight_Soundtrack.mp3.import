@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3-402a306bf3aef39727030b50285d33db.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3"
+dest_files=[ "res://.import/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3-402a306bf3aef39727030b50285d33db.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

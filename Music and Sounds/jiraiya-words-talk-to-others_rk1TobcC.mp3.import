@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jiraiya-words-talk-to-others_rk1TobcC.mp3-33087882a94866b33fbc8cbcb530c319.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/jiraiya-words-talk-to-others_rk1TobcC.mp3"
+dest_files=[ "res://.import/jiraiya-words-talk-to-others_rk1TobcC.mp3-33087882a94866b33fbc8cbcb530c319.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

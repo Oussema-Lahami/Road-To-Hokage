@@ -34,3 +34,7 @@ func _on_jump_body_entered(body):
 
 func _on_jump_body_exited(body):
 	attack = false
+
+
+func _on_Hurtbox_area_entered(area):
+	queue_free()

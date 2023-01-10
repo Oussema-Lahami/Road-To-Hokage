@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/Jiraya/1.png" type="Texture" id=1]
+[ext_resource path="res://Jiraya.gd" type="Script" id=2]
+[ext_resource path="res://assets/Jiraya/17.png" type="Texture" id=3]
+[ext_resource path="res://assets/Jiraya/16.png" type="Texture" id=4]
+[ext_resource path="res://assets/Jiraya/14.png" type="Texture" id=5]
+[ext_resource path="res://assets/Jiraya/15.png" type="Texture" id=6]
+[ext_resource path="res://assets/Jiraya/0.png" type="Texture" id=7]
+[ext_resource path="res://assets/Jiraya/5.png" type="Texture" id=8]
+[ext_resource path="res://Music and Sounds/jiraiya-words-talk-to-others_rk1TobcC.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Music and Sounds/Naruto_ Ultimate Ninja 2 - _Training Field & Memorial Stone_ [1080p]-[onlinevideoconverter.com].mp3" type="AudioStream" id=10]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "Appear",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Teleport",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 19.0
+height = 54.0
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 19.9999, 26.75 )
+
+[node name="Jiraya" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 334, 243.98 )
+scale = Vector2( 0.922222, 1.15308 )
+frames = SubResource( 9 )
+animation = "Appear"
+speed_scale = 0.507
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 335, 251 )
+shape = SubResource( 10 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 531, 237 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( 139, 225 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="JirayaArea" type="Area2D" parent="."]
+position = Vector2( 327, 249 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JirayaArea"]
+position = Vector2( 7.75006, 28 )
+rotation = 1.57079
+shape = SubResource( 11 )
+
+[node name="Dialogue" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.713726, 0.486275, 0.486275, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.952941, 0.772549, 0.772549, 1 )
+
+[node name="Label" type="Label" parent="Dialogue/ColorRect"]
+margin_right = 40.0
+margin_bottom = 14.0
+align = 1
+valign = 1
+
+[node name="whatsapp" type="AudioStreamPlayer2D" parent="Dialogue/ColorRect"]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="pst" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -0.805
+pitch_scale = 0.66
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 13.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="JirayaArea" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="JirayaArea" to="." method="_on_attack_body_exited"]
+[connection signal="finished" from="Dialogue/ColorRect/whatsapp" to="." method="_on_whatsapp_finished"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

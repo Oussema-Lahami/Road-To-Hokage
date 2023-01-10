@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://bullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/naruto1/Naruto.png" type="Texture" id=2]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -34,6 +35,9 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 21.0001
 
+[sub_resource type="CapsuleShape2D" id=7]
+height = 47.6494
+
 [node name="shuriken" type="Area2D"]
 position = Vector2( 245, 310 )
 scale = Vector2( 0.5, 0.5 )
@@ -53,4 +57,14 @@ shape = SubResource( 6 )
 position = Vector2( 3, 3 )
 scale = Vector2( 2.7, 1.9 )
 
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( -2, 8 )
+rotation = -1.62935
+shape = SubResource( 7 )
+
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+
+[editable path="Hurtbox"]

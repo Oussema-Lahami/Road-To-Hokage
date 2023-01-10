@@ -72,14 +72,17 @@ func _physics_process(delta):
 		$AnimatedSprite.play("throw")
 		throwtimer = 0.1
 		var shuriken = SHURIKEN.instance()
+		$ShurikenSound.play()
 		if $AnimatedSprite.flip_h == true: 
 			shuriken.set_shuriken_direction(Vector2(-1 , -1))
 		if Input.is_action_pressed("ui_up"):
-			shuriken.up = true
-			shuriken.down = false
+			shuriken.set_shuriken_direction(Vector2(1,2))
+			#shuriken.up = true
+			#shuriken.down = false
 		if Input.is_action_pressed("ui_down"):
-			shuriken.up = true
-			shuriken.down = true
+			shuriken.set_shuriken_direction(Vector2(-1,-2))
+			#shuriken.up = true
+			#shuriken.down = true
 		get_parent().add_child(shuriken)
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
@@ -89,6 +92,7 @@ func _physics_process(delta):
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
 		smoke.play()
+		$SmokeSound.play()
 		new.get_node("Camera2D").starting()
 		secondForm = true
 		$AnimatedSprite.visible = false
@@ -106,6 +110,7 @@ func _physics_process(delta):
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
 		smoke.play()
+		$SmokeSound.play()
 		get_node("Camera2D").starting()
 		secondForm = false
 		$AnimatedSprite.visible = true
