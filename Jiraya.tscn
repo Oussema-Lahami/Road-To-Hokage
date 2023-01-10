@@ -96,6 +96,8 @@ autoplay = true
 
 [node name="pst" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -0.805
+pitch_scale = 0.66
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 13.0
