@@ -35,26 +35,32 @@ func _physics_process(delta):
 	#player movement start
 	var input_vector = Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
+		$steps.play()
 		$AnimatedSprite.play("right")
 		$AnimatedSprite.flip_h = false
 		if sign($Position2D.position.x) == -1:
 			$Position2D.position.x *= -1
 	elif Input.is_action_pressed("ui_left"):
+		$steps.play()
 		$AnimatedSprite.play("right")
 		$AnimatedSprite.flip_h = true
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
 	elif Input.is_action_pressed("ui_up"):
+		$steps.play()
 		$AnimatedSprite.play("up")
 		if sign($Position2D.position.y) == -1:
 			$Position2D.position.y *= -1
 	elif Input.is_action_pressed("ui_down"):
+		$steps.play()
 		$AnimatedSprite.play("down")
 		if sign($Position2D.position.x) == 1:
 			$Position2D.position.x *= -1
 	elif secondForm :
+		$steps.stop()
 		$AnimatedSprite.visible = false
 	elif (not $AnimatedSprite.animation == "throw") or throwtimer <= 0:
+		$steps.stop()
 		$AnimatedSprite.play("stanceRight")
 
 
