@@ -14,10 +14,13 @@ func _on_JirayaArea_body_exited(_body):
 	$Dialogue/ColorRect/whatsapp.stop()
 	$AnimatedSprite.play("Teleport")
 	get_parent().get_node("Dialogue").visible = false
-	$pst.play()
+	#$pst.play()
 
 
 
 
 func _on_Timer2_timeout():
-	$pst.play()
+	#$pst.play()
+	pass
+func stop_music():
+	$pst.stop()

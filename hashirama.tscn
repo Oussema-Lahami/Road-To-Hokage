@@ -75,6 +75,7 @@ height = 517.997
 extents = Vector2( 14.5, 46 )
 
 [node name="hashirama" type="KinematicBody2D"]
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -107,8 +108,8 @@ rotation = 1.57079
 shape = SubResource( 11 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
-collision_layer = 31
-collision_mask = 31
+collision_layer = 16
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 325, 246 )

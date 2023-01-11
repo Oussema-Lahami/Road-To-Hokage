@@ -19,6 +19,7 @@ func _ready():
 func _on_Timer_timeout():
 	#$song.play()
 	$starting.stop()
+	#Global.play_music()
 	pass
 
 

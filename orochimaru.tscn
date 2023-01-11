@@ -1,9 +1,10 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/KBE_Orochimaru.png" type="Texture" id=1]
 [ext_resource path="res://orochimaru.gd" type="Script" id=2]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=4]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
@@ -279,12 +280,14 @@ radius = 195.064
 extents = Vector2( 13.125, 20.5 )
 
 [node name="orochimaru" type="KinematicBody2D"]
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 300, 170 )
 frames = SubResource( 18 )
 animation = "down"
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 306, 178 )
@@ -308,14 +311,34 @@ collision_mask = 2
 position = Vector2( 303, 166 )
 shape = SubResource( 53 )
 
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+
 [node name="ShadowSprite" type="Sprite" parent="."]
 position = Vector2( 302, 184 )
 rotation = 0.119931
 scale = Vector2( 0.843749, 0.250001 )
 texture = ExtResource( 4 )
 
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 293.0
+margin_top = 133.0
+margin_right = 311.0
+margin_bottom = 134.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.729412, 0.0745098, 0.737255, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="Hurtbox"]
+[editable path="Hitbox"]

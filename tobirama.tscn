@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://tobirama.gd" type="Script" id=2]
@@ -10,11 +10,13 @@
 [ext_resource path="res://assets/enemies/Level1/79.png" type="Texture" id=8]
 [ext_resource path="res://assets/enemies/Level1/117.png" type="Texture" id=9]
 [ext_resource path="res://assets/enemies/Level1/108.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemies/Level1/80.png" type="Texture" id=11]
 [ext_resource path="res://assets/enemies/Level1/109.png" type="Texture" id=12]
 [ext_resource path="res://assets/enemies/Level1/76.png" type="Texture" id=13]
 [ext_resource path="res://assets/enemies/Level1/102.png" type="Texture" id=14]
 [ext_resource path="res://assets/enemies/Level1/118.png" type="Texture" id=15]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=17]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -123,7 +125,7 @@ region = Rect2( 365, 1012, 73, 77 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 6 ), ExtResource( 8 ), null, ExtResource( 7 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 15 ) ],
+"frames": [ SubResource( 1 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Fall",
 "speed": 5.0
@@ -157,17 +159,18 @@ radius = 107.075
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 8.5, 31.25 )
 
-[sub_resource type="LineShape2D" id=27]
-d = 1.0
+[sub_resource type="CapsuleShape2D" id=27]
+height = 0.241554
 
 [node name="tobirama" type="KinematicBody2D"]
 position = Vector2( 109, 107 )
+collision_layer = 8
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 35, 48 )
 frames = SubResource( 18 )
-animation = "idle"
+animation = "Fall"
 speed_scale = 0.929
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -210,18 +213,49 @@ scale = Vector2( 1.03125, 0.6 )
 texture = ExtResource( 5 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 16 )]
-collision_mask = 3
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 37, 52 )
-scale = Vector2( 0.375939, 0.80697 )
+modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
+position = Vector2( 35, 52 )
+rotation = -1.56918
+scale = Vector2( 0.622918, 3.02231 )
 shape = SubResource( 27 )
+one_way_collision_margin = 2.0
 
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = 11.965
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 3.0
+margin_right = 45.0
+margin_bottom = 4.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.41954, 0.452638, 0.457031, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 [connection signal="body_entered" from="jump" to="." method="_on_jump_body_entered"]
 [connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 
 [editable path="Hurtbox"]
 [editable path="Hitbox"]

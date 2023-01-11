@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Global.gd" type="Script" id=1]
-[ext_resource path="res://Music and Sounds/Lango_exploration.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Music and Sounds/Naruto_ Ultimate Ninja 2 - _Training Field & Memorial Stone_ [1080p]-[onlinevideoconverter.com].mp3" type="AudioStream" id=2]
 [ext_resource path="res://Music and Sounds/Death.ogg" type="AudioStream" id=3]
 
 [node name="Global" type="Node"]

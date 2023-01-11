@@ -5,15 +5,20 @@ const MAX_SPEED = 170
 const ACCELERATION = 1000
 const FRICTION = 1000
 var velocity = Vector2.ZERO
-
 var direction = Vector2(1,0)
+var attack = false
+var dead   = false
+
+export var HEALTH  = 10
+onready var hurtbox  = $HurtBox
 var secondForm = false
 var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
 const SMOKE = preload("res://smoke.tscn")
-
+const Jiraya = preload("res://Jiraya.tscn")
+var jiraya =Jiraya.instance()
 var smoke = SMOKE.instance()
 var throwtimer = 0
 var naruto3 = NARUTO3.instance()
@@ -141,3 +146,29 @@ func _on_Timer_timeout():
 		naruto3.flip()
 	get_parent().add_child(naruto3)
 	naruto3.global_position = $Position2D2.global_position
+
+
+func _on_Hurtbox_invincibility_ended():
+	pass # Replace with function body.
+
+
+func _on_Hurtbox_invincibility_started():
+	pass # Replace with function body.
+
+
+func _on_Hurtbox_area_entered(area):
+	if HEALTH != 1:
+		$Hurt.play()
+		HEALTH = HEALTH -1
+		#knockback = area.knockback_vectosr * 120
+		#hurtbox.create_hit_effect()
+		#hurtbox.start_invincibility(0.4)
+	else:
+		dead = true
+		dying_state()
+func dying_state(): 
+	#$HurtBox.queue_free()
+	Global.stop_music()
+	Global.death_play()
+	get_tree().change_scene("res://UI/FirstMenu.tscn")
+	
