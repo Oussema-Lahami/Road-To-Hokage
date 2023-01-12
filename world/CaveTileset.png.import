@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CaveTileset.png-23cf6aa0e0d6dcf8c9d307eae6f42b27.stex"
+path="res://.import/CaveTileset.png-de4076f1826da5e22be3a393f6e64624.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/CaveTileset.png"
-dest_files=[ "res://.import/CaveTileset.png-23cf6aa0e0d6dcf8c9d307eae6f42b27.stex" ]
+source_file="res://World/CaveTileset.png"
+dest_files=[ "res://.import/CaveTileset.png-de4076f1826da5e22be3a393f6e64624.stex" ]
 
 [params]
 

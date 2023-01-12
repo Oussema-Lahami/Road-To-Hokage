@@ -137,6 +137,9 @@ margin_right = 18.0
 margin_bottom = 1.0
 color = Color( 0.262745, 0.941176, 0.0941176, 1 )
 
+[node name="death" type="Position2D" parent="."]
+position = Vector2( 333, 256 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]

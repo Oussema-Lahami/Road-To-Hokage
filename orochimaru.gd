@@ -38,5 +38,5 @@ func _on_Hurtbox_area_entered(area):
 		#$EnemyDeathEffect.play("Animate")
 		var enemyDeathEffect = EnemyDeathEffect.instance()
 		get_parent().add_child(enemyDeathEffect)
-		enemyDeathEffect.global_position = global_position
+		enemyDeathEffect.global_position = $death.global_position
 		queue_free()

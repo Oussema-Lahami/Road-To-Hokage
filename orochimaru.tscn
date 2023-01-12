@@ -336,6 +336,9 @@ margin_right = 18.0
 margin_bottom = 1.0
 color = Color( 0.262745, 0.941176, 0.0941176, 1 )
 
+[node name="death" type="Position2D" parent="."]
+position = Vector2( 296, 182 )
+
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
