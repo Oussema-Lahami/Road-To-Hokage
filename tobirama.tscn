@@ -160,7 +160,7 @@ radius = 107.075
 extents = Vector2( 8.5, 31.25 )
 
 [sub_resource type="CapsuleShape2D" id=27]
-height = 0.241554
+height = 2.49932
 
 [node name="tobirama" type="KinematicBody2D"]
 position = Vector2( 109, 107 )
@@ -217,7 +217,7 @@ collision_mask = 6
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
-position = Vector2( 35, 52 )
+position = Vector2( 33, 52 )
 rotation = -1.56918
 scale = Vector2( 0.622918, 3.02231 )
 shape = SubResource( 27 )

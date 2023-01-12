@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 var dead   = false
-
+#const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const EnemyDeathEffect = preload("res://Effects/OrochimaruDeathEffect.tscn")
 export var HEALTH  = 3
 export var FRICTION = 200
 onready var hurtbox  = $HurtBox
@@ -34,4 +35,8 @@ func _on_Hurtbox_area_entered(area):
 		HEALTH = HEALTH -1
 	else:
 		dead = true
+		#$EnemyDeathEffect.play("Animate")
+		var enemyDeathEffect = EnemyDeathEffect.instance()
+		get_parent().add_child(enemyDeathEffect)
+		enemyDeathEffect.global_position = global_position
 		queue_free()

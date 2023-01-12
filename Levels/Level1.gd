@@ -2,9 +2,13 @@ extends Node2D
 var levelname = preload("res://Levels/LevelName.tscn")
 const SMOKE = preload("res://smoke.tscn")
 var smoke = SMOKE.instance()
-
+#var count = 0 
+#var tobirama_counter = preload("res://tobirama.tscn")
 
 func _ready():
+	#var tobi = tobirama_counter.instance()
+	#tobi.dead = true 
+	#count = count + 1 
 	var level_name = levelname.instance()
 	add_child(level_name)
 	#$song.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://world/Grass.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Naruto1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=10]
+[ext_resource path="res://tobirama.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Music and Sounds/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3" type="AudioStream" id=12]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -966,6 +968,9 @@ tile_data = PoolIntArray( 196598, 0, 4, 196599, 0, 196609, 196600, 0, 196609, 19
 [node name="Naruto1" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( -233, 508 )
 
+[node name="tobirama" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 321, 626 )
+
 [node name="Cactus" type="YSort" parent="YSort"]
 
 [node name="Cactus" parent="YSort/Cactus" instance=ExtResource( 6 )]
@@ -1016,17 +1021,20 @@ margin_right = 42.0
 margin_bottom = 401.0
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue"]
-margin_left = -162.0
-margin_top = 54.0
-margin_right = -105.0
-margin_bottom = 91.0
+margin_left = 92.0
+margin_top = 256.0
+margin_right = 149.0
+margin_bottom = 293.0
 color = Color( 0.576471, 0.47451, 0.27451, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
-margin_left = -59.0
-margin_top = -8.0
-margin_right = 126.0
-margin_bottom = 142.0
+margin_left = -60.0
+margin_top = 1.0
+margin_right = 124.0
+margin_bottom = 97.0
 color = Color( 0.345098, 0.545098, 0.321569, 1 )
 
 [node name="Label" type="Label" parent="Dialogue/ColorRect"]
@@ -1045,16 +1053,24 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JirayaArea"]
-position = Vector2( 16, 108.5 )
+position = Vector2( 136, 108 )
 shape = SubResource( 98 )
 
 [node name="Jiraya" parent="." instance=ExtResource( 3 )]
-position = Vector2( -464, 400 )
+position = Vector2( -326, 397 )
 collision_layer = 0
 collision_mask = 2
 
 [node name="whida AirBag" parent="." instance=ExtResource( 8 )]
-position = Vector2( -128, 682 )
+position = Vector2( 9, 686 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 
 [connection signal="body_entered" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -120,6 +120,23 @@ position = Vector2( 324, 283.2 )
 scale = Vector2( 3, 0.7 )
 texture = ExtResource( 4 )
 
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 317.0
+margin_top = 197.0
+margin_right = 335.0
+margin_bottom = 198.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.909804, 0.607843, 0.141176, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]

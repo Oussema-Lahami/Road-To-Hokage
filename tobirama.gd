@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+#const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const tobideath = preload("res://Effects/TobiramaDeathEffect.tscn")
 var speed = 120
 var motion = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -13,6 +14,7 @@ export var FRICTION = 200
 onready var hurtbox  = $HurtBox
 onready var bar  = $Health/Bar
 onready var playerDetectionZone = $PlayerDetectionZone
+
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -31,14 +33,11 @@ func _physics_process(delta):
 	motion = move_and_slide(motion)
 	$AnimatedSprite.flip_h = motion.x < 0
 
-
 func _on_attack_body_entered(body):
 	player = body
 
-
 func _on_attack_body_exited(body):
 	player = null
-
 
 func _on_jump_body_entered(body):
 	attack = true
@@ -46,7 +45,6 @@ func _on_jump_body_entered(body):
 
 func _on_jump_body_exited(body):
 	attack = false
-	#$Hitbox.CollisionShape2D.set_enabled(false)
 
 func _on_Hurtbox_area_entered(area):
 	if HEALTH != 1:
@@ -57,15 +55,12 @@ func _on_Hurtbox_area_entered(area):
 		#hurtbox.create_hit_effect()
 		#hurtbox.start_invincibility(0.4)
 	else:
-		if !$AnimatedSprite.is_playing():
-			$AnimatedSprite.stop()
-			$AnimatedSprite.play("Fall")
-		dead = true
-		queue_free()
-		#var enemyDeathEffect = EnemyDeathEffect.instance()
-		#get_parent().add_child(enemyDeathEffect)
-		#enemyDeathEffect.global_position = global_position
 
+		dead = true
+		var enemyDeathEffect = tobideath.instance()
+		get_parent().add_child(enemyDeathEffect)
+		enemyDeathEffect.global_position = global_position
+		queue_free()
 
 func _on_Hurtbox_invincibility_ended():
 	pass # Replace with function body.
@@ -78,11 +73,6 @@ func _on_Hurtbox_invincibility_started():
 func _on_Hurtbox_area_exited(area):
 	pass # Replace with function body.
 
-
-func _on_AnimatedSprite_animation_finished():
-	if dead:
-		$AnimatedSprite.play("Fall")
-		queue_free()
 
 
 func _on_Hitbox_body_entered(body):

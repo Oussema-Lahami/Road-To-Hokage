@@ -9,7 +9,7 @@ var direction = Vector2(1,0)
 var attack = false
 var dead   = false
 
-export var HEALTH  = 3
+export var HEALTH  = 10
 onready var hurtbox  = $HurtBox
 var secondForm = false
 var new = newForm.instance()
@@ -18,6 +18,7 @@ const newForm = preload("res://naruto2.tscn")
 const NARUTO3 = preload("res://naruto3.tscn")
 const SMOKE = preload("res://smoke.tscn")
 const Jiraya = preload("res://Jiraya.tscn")
+onready var bar  = $Health/Bar
 var jiraya =Jiraya.instance()
 var smoke = SMOKE.instance()
 var throwtimer = 0
@@ -164,17 +165,24 @@ func _on_Hurtbox_invincibility_started():
 
 func _on_Hurtbox_area_entered(area):
 	if HEALTH != 1:
+		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
 		$Hurt.play()
 		HEALTH = HEALTH -1
-		#knockback = area.knockback_vectosr * 120
-		#hurtbox.create_hit_effect()
-		#hurtbox.start_invincibility(0.4)
+		#yield(shake_camera(0.3, 10), "tween_completed")
 	else:
 		dead = true
 		dying_state()
+
 func dying_state(): 
 	#$HurtBox.queue_free()
 	Global.stop_music()
 	Global.death_play()
 	get_tree().change_scene("res://UI/game-over.tscn")
+
+func shake_camera(duration, amplitude):
+	var cam_tween = Tween.new()
+	cam_tween.interpolate_property($Camera2D, "offset", Vector2.ZERO, Vector2(rand_range(-amplitude, amplitude), rand_range(-amplitude, amplitude)), duration, Tween.TRANS_SINE, Tween.EASE_OUT)
+	cam_tween.start()
+	yield(cam_tween, "tween_completed")
+	$Camera2D.offset = Vector2.ZERO
 	
