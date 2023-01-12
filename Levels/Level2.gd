@@ -5,6 +5,7 @@ var smoke = SMOKE.instance()
 
 
 func _ready():
+	Global.current_level=2
 	var level_name = levelname.instance()
 	add_child(level_name)
 	#smoke.scale.x = 2

@@ -9,6 +9,7 @@ func _ready():
 	#var tobi = tobirama_counter.instance()
 	#tobi.dead = true 
 	#count = count + 1 
+	Global.current_level=1 
 	var level_name = levelname.instance()
 	add_child(level_name)
 	#$song.play()
