@@ -9,7 +9,7 @@ var direction = Vector2(1,0)
 var attack = false
 var dead   = false
 
-export var HEALTH  = 10
+export var HEALTH  = 3
 onready var hurtbox  = $HurtBox
 var secondForm = false
 var new = newForm.instance()
@@ -176,5 +176,5 @@ func dying_state():
 	#$HurtBox.queue_free()
 	Global.stop_music()
 	Global.death_play()
-	get_tree().change_scene("res://UI/FirstMenu.tscn")
+	get_tree().change_scene("res://UI/game-over.tscn")
 	

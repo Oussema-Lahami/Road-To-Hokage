@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Foliage04.wav-aeadcc43a9e213a4dec6270e0da86e63.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Nature Sounds Pack/Foliage/Foliage04.wav"
+dest_files=[ "res://.import/Foliage04.wav-aeadcc43a9e213a4dec6270e0da86e63.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

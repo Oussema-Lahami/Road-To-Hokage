@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Music and Sounds/Explosion1.ogg" type="AudioStream" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=15]
 [ext_resource path="res://tobirama.tscn" type="PackedScene" id=16]
 [ext_resource path="res://orochimaru.tscn" type="PackedScene" id=17]
+[ext_resource path="res://world/Raven.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -495,6 +496,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 38, 56.5 )
 
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 27, 10 )
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -680,7 +684,7 @@ position = Vector2( 2156, 831 )
 position = Vector2( 1496, -151 )
 
 [node name="Grass2" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 170, 419 )
+position = Vector2( 137, 295 )
 
 [node name="Grass3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 53, 104 )
@@ -692,7 +696,7 @@ position = Vector2( 275, 104 )
 position = Vector2( 369, 280 )
 
 [node name="Grass6" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( -63, 98 )
+position = Vector2( -17, -41 )
 
 [node name="Grass7" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 772, 341 )
@@ -757,14 +761,14 @@ position = Vector2( 1910, 812 )
 [node name="Grass27" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2159, 555 )
 
+[node name="Grass46" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 2508, 112 )
+
+[node name="Grass47" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 2481, 216 )
+
 [node name="Grass28" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2121, 151 )
-
-[node name="Grass2" parent="YSort/Grass28" instance=ExtResource( 11 )]
-position = Vector2( 387, -39 )
-
-[node name="Grass3" parent="YSort/Grass28" instance=ExtResource( 11 )]
-position = Vector2( 360, 65 )
 
 [node name="Grass29" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2254, 112 )
@@ -803,7 +807,7 @@ position = Vector2( 2353, -84 )
 position = Vector2( 2397, -84 )
 
 [node name="Grass41" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 2874, 689 )
+position = Vector2( 2350, 661 )
 
 [node name="Grass42" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 86, 713 )
@@ -817,7 +821,7 @@ position = Vector2( 2851, 111 )
 [node name="Grass45" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 2317, 117 )
 
-[node name="air" parent="." instance=ExtResource( 9 )]
+[node name="whida AirBag" parent="." instance=ExtResource( 9 )]
 position = Vector2( 22, 505 )
 
 [node name="Dialogue" type="Control" parent="."]
@@ -889,15 +893,22 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Entrance" parent="." instance=ExtResource( 14 )]
-position = Vector2( 100, -125 )
-scale = Vector2( -5.41224, 6.30362 )
+position = Vector2( 2913, 802 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Entrance"]
+position = Vector2( -33, -115 )
+shape = SubResource( 51 )
 
 [node name="EntranceToNextLevel" type="Position2D" parent="."]
 position = Vector2( 1, -117 )
 rotation = 3.14159
 scale = Vector2( 5.41224, -6.30362 )
 
+[node name="Raven" parent="." instance=ExtResource( 18 )]
+position = Vector2( 205, 17 )
+
 [connection signal="body_entered" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="body_entered" from="Entrance" to="Entrance" method="_on_Entrance_body_entered"]

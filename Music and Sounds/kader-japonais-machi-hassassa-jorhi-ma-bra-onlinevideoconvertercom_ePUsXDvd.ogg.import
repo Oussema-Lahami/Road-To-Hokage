@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kader-japonais-machi-hassassa-jorhi-ma-bra-onlinevideoconvertercom_ePUsXDvd.ogg-eae00dbc8f446a4f63b98a080ab8397f.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/kader-japonais-machi-hassassa-jorhi-ma-bra-onlinevideoconvertercom_ePUsXDvd.ogg"
+dest_files=[ "res://.import/kader-japonais-machi-hassassa-jorhi-ma-bra-onlinevideoconvertercom_ePUsXDvd.ogg-eae00dbc8f446a4f63b98a080ab8397f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

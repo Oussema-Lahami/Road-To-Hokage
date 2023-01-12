@@ -44,7 +44,8 @@ func _input(_event):
 			0:
 				# New game
 # warning-ignore:return_value_discarded
-				get_tree().change_scene(\"res://Level1.tscn\")
+				SceneTransition.change_scene(\"res://Levels/Level1.tscn\")
+				#get_tree().change_scene(\"res://Levels/Level1.tscn\")
 			1:
 				# Load game
 				$Global.load_game()
@@ -123,8 +124,7 @@ margin_right = 366.0
 margin_bottom = 253.0
 color = Color( 0.458824, 0.160784, 0.160784, 1 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Label" type="Label" parent="Quit"]

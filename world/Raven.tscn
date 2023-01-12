@@ -1,0 +1,85 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://assets/raven/raven-black0020.png" type="Texture" id=1]
+[ext_resource path="res://assets/raven/raven-black0009.png" type="Texture" id=2]
+[ext_resource path="res://assets/raven/raven-black0010.png" type="Texture" id=3]
+[ext_resource path="res://assets/raven/raven-black0016.png" type="Texture" id=4]
+[ext_resource path="res://assets/raven/raven-black0018.png" type="Texture" id=5]
+[ext_resource path="res://assets/raven/raven-black0023.png" type="Texture" id=6]
+[ext_resource path="res://assets/raven/raven-black0015.png" type="Texture" id=7]
+[ext_resource path="res://assets/raven/raven-black0013.png" type="Texture" id=8]
+[ext_resource path="res://assets/raven/raven-black0022.png" type="Texture" id=9]
+[ext_resource path="res://assets/raven/raven-black0003.png" type="Texture" id=10]
+[ext_resource path="res://assets/raven/raven-black0006.png" type="Texture" id=11]
+[ext_resource path="res://assets/raven/raven-black0024.png" type="Texture" id=12]
+[ext_resource path="res://assets/raven/raven-black0007.png" type="Texture" id=13]
+[ext_resource path="res://assets/raven/raven-black0017.png" type="Texture" id=14]
+[ext_resource path="res://assets/raven/raven-black0004.png" type="Texture" id=15]
+[ext_resource path="res://assets/raven/raven-black0021.png" type="Texture" id=16]
+[ext_resource path="res://assets/raven/raven-black0001.png" type="Texture" id=17]
+[ext_resource path="res://assets/raven/raven-black0025.png" type="Texture" id=18]
+[ext_resource path="res://assets/raven/raven-black0012.png" type="Texture" id=19]
+[ext_resource path="res://assets/raven/raven-black0002.png" type="Texture" id=20]
+[ext_resource path="res://assets/raven/raven-black0008.png" type="Texture" id=21]
+[ext_resource path="res://assets/raven/raven-black0019.png" type="Texture" id=22]
+[ext_resource path="res://assets/raven/raven-black0011.png" type="Texture" id=23]
+[ext_resource path="res://assets/raven/raven-black0005.png" type="Texture" id=24]
+[ext_resource path="res://assets/raven/raven-black0014.png" type="Texture" id=25]
+[ext_resource path="res://world/Raven.gd" type="Script" id=26]
+[ext_resource path="res://Music and Sounds/crow_caw.wav" type="AudioStream" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 24 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 20.0
+height = 26.0001
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 27.9999, 52 )
+
+[node name="Raven" type="KinematicBody2D"]
+script = ExtResource( 26 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 116, 262 )
+scale = Vector2( 0.0566406, 0.0605469 )
+frames = SubResource( 1 )
+speed_scale = 2.0
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 117, 260 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="caw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 27 )
+area_mask = 6
+
+[node name="RavenArea" type="Area2D" parent="."]
+position = Vector2( 112, 241 )
+collision_layer = 0
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RavenArea"]
+position = Vector2( 2.00003, 23.0001 )
+rotation = 1.57079
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="RavenArea" to="." method="_on_RavenArea_body_entered"]
+[connection signal="body_exited" from="RavenArea" to="." method="_on_RavenArea_body_exited"]

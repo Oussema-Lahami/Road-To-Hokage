@@ -8,7 +8,7 @@
 [ext_resource path="res://Music and Sounds/Explosion.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Music and Sounds/Explosion1.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Music and Sounds/Rock.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Music and Sounds/Nature Sounds Pack/Footstep/FootstepGrass02.wav" type="AudioStream" id=9]
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -194,7 +194,7 @@ height = 52.0
 position = Vector2( 246, 261 )
 collision_layer = 2
 script = ExtResource( 3 )
-HEALTH = 3
+HEALTH = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -259,8 +259,10 @@ stream = ExtResource( 7 )
 volume_db = 20.015
 area_mask = 0
 
-[node name="steps" type="AudioStreamPlayer2D" parent="."]
+[node name="steps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -1.0
+mix_target = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

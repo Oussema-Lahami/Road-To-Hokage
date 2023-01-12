@@ -288,10 +288,9 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Game \"Road To Hokage\" 
 Based on the Anime \"Naruto\"
-Developed By
-Andrea
-Oussema
-Mohamed Aziz"
+Developed By :
+Oussema Lahami
+Mohamed Aziz Feriani"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

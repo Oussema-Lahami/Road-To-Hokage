@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Z_Index.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/Cactus2.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.01267
+height = 15.9747
+
+[node name="Cactus2" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -3, 4 )
+scale = Vector2( 0.485507, 0.806667 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 24 )
+rotation = 1.5708
+scale = Vector2( 1.48675, 0.919968 )
+shape = SubResource( 1 )
+
+[node name="Z_Index" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="CollisionPolygon2D" parent="Z_Index" index="0"]
+polygon = PoolVector2Array( -15.537, 13.2513, -8.69387, 17.4987, 8.29586, 17.9707, 15.7289, 13.4873, 13.5466, -10.8854, 8.54099, -21.731, 0.0313721, -23.7332, -8.47824, -21.5641, -13.4839, -10.7186 )
+
+[editable path="Z_Index"]

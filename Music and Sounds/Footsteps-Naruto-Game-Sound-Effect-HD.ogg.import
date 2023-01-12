@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Footsteps-Naruto-Game-Sound-Effect-HD.ogg-795c928d062c68a8d5c3529f6d410837.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Footsteps-Naruto-Game-Sound-Effect-HD.ogg"
+dest_files=[ "res://.import/Footsteps-Naruto-Game-Sound-Effect-HD.ogg-795c928d062c68a8d5c3529f6d410837.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

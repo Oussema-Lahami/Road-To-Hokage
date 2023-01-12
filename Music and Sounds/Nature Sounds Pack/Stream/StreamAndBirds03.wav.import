@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/StreamAndBirds03.wav-61af3800c463f635cdf9e3582c00501d.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Nature Sounds Pack/Stream/StreamAndBirds03.wav"
+dest_files=[ "res://.import/StreamAndBirds03.wav-61af3800c463f635cdf9e3582c00501d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

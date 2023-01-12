@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/scene_transition.gd" type="Script" id=1]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/loading.PNG" type="Texture" id=3]
+[ext_resource path="res://orochimaru.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "dissolve"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="dissolve_rect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.85098, 0.607843, 0.184314, 1 )
+
+[node name="Label" type="Label" parent="dissolve_rect"]
+margin_left = 314.0
+margin_top = 457.0
+margin_right = 768.0
+margin_bottom = 587.0
+custom_fonts/font = ExtResource( 2 )
+text = "Loading..."
+align = 1
+uppercase = true
+
+[node name="orochimaru" parent="dissolve_rect" instance=ExtResource( 4 )]
+
+[node name="AnimatedSprite" parent="dissolve_rect/orochimaru" index="0"]
+position = Vector2( 485, 315 )
+scale = Vector2( 3.725, 1.83684 )
+animation = "right"
+frame = 6
+playing = true
+
+[node name="CollisionShape2D" parent="dissolve_rect/orochimaru" index="1"]
+visible = false
+
+[node name="Position2D" parent="dissolve_rect/orochimaru" index="2"]
+visible = false
+
+[node name="attack" parent="dissolve_rect/orochimaru" index="3"]
+visible = false
+
+[node name="Hurtbox" parent="dissolve_rect/orochimaru" index="4"]
+visible = false
+
+[node name="Hitbox" parent="dissolve_rect/orochimaru" index="5"]
+visible = false
+
+[node name="ShadowSprite" parent="dissolve_rect/orochimaru" index="6"]
+visible = false
+
+[node name="Health" parent="dissolve_rect/orochimaru" index="7"]
+visible = false
+
+[node name="pc bl terma" type="Sprite" parent="dissolve_rect"]
+visible = false
+position = Vector2( 901, 254.25 )
+scale = Vector2( 1.80597, 1.63008 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dissolve = SubResource( 2 )
+
+[editable path="dissolve_rect/orochimaru"]
+[editable path="dissolve_rect/orochimaru/Hurtbox"]
+[editable path="dissolve_rect/orochimaru/Hitbox"]
