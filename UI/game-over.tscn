@@ -6,7 +6,7 @@
 [ext_resource path="res://Font/Font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Effects/HitEffect.png" type="Texture" id=5]
 [ext_resource path="res://orochimaru.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Intro/Générique du feuilleton Hsabet wa Akabet حسابات و عقابات-[onlinevideoconverter.com].webm" type="VideoStream" id=7]
+[ext_resource path="res://Intro/Naruto-death-_AMV_-Arcade_Trim.webm" type="VideoStream" id=7]
 
 [node name="Control" type="Control"]
 self_modulate = Color( 0.980392, 0.952941, 0.952941, 1 )
@@ -55,7 +55,7 @@ position = Vector2( 1420, -367 )
 position = Vector2( -1344, 1108 )
 scale = Vector2( 1.5, 1.78788 )
 animation = "right"
-frame = 0
+frame = 12
 playing = true
 
 [node name="CollisionShape2D" parent="orochimaru" index="1"]
@@ -80,10 +80,10 @@ margin_right = 1927.0
 margin_bottom = 964.0
 
 [node name="VideoPlayer" type="VideoPlayer" parent="ColorRect"]
-margin_left = -8.0
-margin_top = -6.0
-margin_right = 1922.0
-margin_bottom = 935.0
+margin_left = -5.0
+margin_top = 5.0
+margin_right = 1594.0
+margin_bottom = 807.0
 stream = ExtResource( 7 )
 autoplay = true
 
@@ -109,6 +109,54 @@ custom_colors/font_outline_modulate = Color( 0.733333, 0.117647, 0.117647, 1 )
 custom_constants/shadow_offset_x = 0
 custom_fonts/font = ExtResource( 4 )
 text = "You Died :( !"
+align = 1
+valign = 1
+
+[node name="New" type="ColorRect" parent="."]
+margin_left = 58.0
+margin_top = 189.0
+margin_right = 183.0
+margin_bottom = 229.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="New"]
+margin_right = 124.0
+margin_bottom = 34.0
+text = "Restart Game"
+align = 1
+valign = 1
+
+[node name="MainMenu" type="ColorRect" parent="."]
+margin_left = 58.0
+margin_top = 229.0
+margin_right = 183.0
+margin_bottom = 269.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="MainMenu"]
+margin_right = 124.0
+margin_bottom = 40.0
+text = "Main Menu"
+align = 1
+valign = 1
+
+[node name="Quit" type="ColorRect" parent="."]
+margin_left = 58.0
+margin_top = 269.0
+margin_right = 183.0
+margin_bottom = 309.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Quit"]
+margin_right = 126.0
+margin_bottom = 40.0
+text = "Quit Game"
 align = 1
 valign = 1
 
