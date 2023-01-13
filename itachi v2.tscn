@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/itachi/itachi.png" type="Texture" id=1]
+[ext_resource path="res://itachi v2.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 1150, 39, 56 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 39, 1150, 39, 56 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 78, 1150, 39, 56 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 117, 1150, 39, 56 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 156, 1150, 39, 56 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 203, 1156, 42, 55 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 251, 1156, 42, 55 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 345, 140, 28, 68 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 373, 140, 28, 68 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "katon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "stance",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 13.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 189.0
+
+[node name="itachi v2" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 56, 56 )
+scale = Vector2( 1.53846, 1.39286 )
+frames = SubResource( 10 )
+animation = "stance"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 56, 53 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 57, 54 )
+shape = SubResource( 12 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

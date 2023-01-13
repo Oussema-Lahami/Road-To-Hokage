@@ -8,6 +8,7 @@ func _ready():
 	Global.current_level=2
 	var level_name = levelname.instance()
 	add_child(level_name)
+	add_child(level_name)
 	#smoke.scale.x = 2
 	#smoke.scale.y = 2
 	#$starting.play()
@@ -18,3 +19,7 @@ func _on_Timer_timeout():
 	#$starting.stop()
 	#Global.play_music()
 	pass
+
+
+func _on_timerdead_timeout():
+	$ravens.visible = true

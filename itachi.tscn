@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/itachi/itachi.png" type="Texture" id=1]
 [ext_resource path="res://itachi.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/Itachi Uchiha Words - Death #shorts.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=13]
 height = 36.0
@@ -68,6 +69,7 @@ animations = [ {
 radius = 100.225
 
 [node name="itachi" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
@@ -87,4 +89,50 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="itachiarea"]
 shape = SubResource( 12 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="speech" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Dialogue2" type="Control" parent="."]
+visible = false
+anchor_right = 10.0
+margin_left = -23.0
+margin_top = -11.0
+margin_right = 17.0
+margin_bottom = 29.0
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue2"]
+margin_left = 128.0
+margin_top = -53.0
+margin_right = 185.0
+margin_bottom = -16.0
+color = Color( 0.576471, 0.47451, 0.27451, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue2/ColorRect"]
+margin_left = -60.0
+margin_top = 1.0
+margin_right = 124.0
+margin_bottom = 97.0
+color = Color( 0.345098, 0.545098, 0.321569, 1 )
+
+[node name="Label" type="Label" parent="Dialogue2/ColorRect"]
+margin_left = -57.0
+margin_top = -6.0
+margin_right = 128.0
+margin_bottom = 127.0
+text = "Hey again
+Now that you completed The first Level , This level is harder be careful"
+valign = 1
+autowrap = true
+
+[node name="dead" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="itachiarea" to="." method="_on_itachiarea_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]
