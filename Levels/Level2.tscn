@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Froggy Jiraya.tscn" type="PackedScene" id=14]
 [ext_resource path="res://World/ape.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Raven.tscn" type="PackedScene" id=16]
+[ext_resource path="res://itachi v2.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -1151,6 +1152,9 @@ position = Vector2( -108, 209 )
 
 [node name="Raven3" parent="ravens" instance=ExtResource( 16 )]
 position = Vector2( -106, 193 )
+
+[node name="itachi v2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1485, 478 )
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]

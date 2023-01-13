@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Katon Gouka MekkyakuNaruto Sound Effect madara uchiha.mp3-4d01dd340a3360c9bae8b7cb928c8a8e.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Katon Gouka MekkyakuNaruto Sound Effect madara uchiha.mp3"
+dest_files=[ "res://.import/Katon Gouka MekkyakuNaruto Sound Effect madara uchiha.mp3-4d01dd340a3360c9bae8b7cb928c8a8e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
