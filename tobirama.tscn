@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://tobirama.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/enemies/Level1/118.png" type="Texture" id=15]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=18]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -147,11 +148,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=19]
-radius = 23.0
+radius = 21.0
 height = 40.0
 
 [sub_resource type="CircleShape2D" id=20]
-radius = 175.003
+radius = 262.429
 
 [sub_resource type="CircleShape2D" id=25]
 radius = 107.075
@@ -160,7 +161,8 @@ radius = 107.075
 extents = Vector2( 8.5, 31.25 )
 
 [sub_resource type="CapsuleShape2D" id=27]
-height = 2.49932
+radius = 12.6627
+height = 3.78918
 
 [node name="tobirama" type="KinematicBody2D"]
 position = Vector2( 109, 107 )
@@ -170,7 +172,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 35, 48 )
 frames = SubResource( 18 )
-animation = "Fall"
+animation = "attack"
 speed_scale = 0.929
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -217,11 +219,16 @@ collision_mask = 6
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
-position = Vector2( 33, 52 )
+position = Vector2( 32, 71 )
 rotation = -1.56918
-scale = Vector2( 0.622918, 3.02231 )
+scale = Vector2( 1.26305, 3.02231 )
 shape = SubResource( 27 )
 one_way_collision_margin = 2.0
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+volume_db = 12.0
+pitch_scale = 0.16
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )

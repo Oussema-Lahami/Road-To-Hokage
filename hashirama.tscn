@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://hashirama.gd" type="Script" id=2]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=4]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -69,7 +71,7 @@ height = 54.0
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 45.0017
-height = 517.997
+height = 735.997
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 14.5, 46 )
@@ -82,6 +84,7 @@ script = ExtResource( 2 )
 position = Vector2( 326, 244 )
 frames = SubResource( 9 )
 animation = "idle"
+speed_scale = 1.5
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -139,6 +142,15 @@ color = Color( 0.262745, 0.941176, 0.0941176, 1 )
 
 [node name="death" type="Position2D" parent="."]
 position = Vector2( 333, 256 )
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 12.0
+pitch_scale = 0.16
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 11.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]

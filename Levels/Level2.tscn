@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Music and Sounds/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3" type="AudioStream" id=12]
 [ext_resource path="res://world/ape.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Froggy Jiraya.tscn" type="PackedScene" id=14]
+[ext_resource path="res://NarutoHokage.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -1015,7 +1016,7 @@ position = Vector2( 206, 808 )
 position = Vector2( 1364, 806 )
 
 [node name="CactuslelTroll" parent="YSort/Cactus" instance=ExtResource( 7 )]
-position = Vector2( -148, 382 )
+position = Vector2( -146, 372 )
 
 [node name="Dialogue" type="Control" parent="."]
 visible = false
@@ -1047,8 +1048,7 @@ margin_left = -57.0
 margin_top = -6.0
 margin_right = 128.0
 margin_bottom = 127.0
-text = "Hey again
-Now that you completed The first Level , This level is harder be careful"
+text = "Hey look who is Here it is Naruto from the Future he came to accompany you ."
 valign = 1
 autowrap = true
 
@@ -1086,6 +1086,9 @@ one_shot = true
 
 [node name="song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+
+[node name="NarutoHokage" parent="." instance=ExtResource( 15 )]
+position = Vector2( -118, -106 )
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]
