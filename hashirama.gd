@@ -32,10 +32,11 @@ func _on_attack_body_exited(body):
 
 func _on_Hurtbox_area_entered(area):
 	if HEALTH != 1:
-		#$hit.play()
+		$hit.play()
 		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
 		HEALTH = HEALTH -1
 	else:
+		$deathsound.play()
 		dead = true
 		#dragon_dead = true
 		#dragon.queue_free()

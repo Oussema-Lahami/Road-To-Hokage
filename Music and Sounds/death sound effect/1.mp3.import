@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1.mp3-441b2e2dd2cedcaeb075bf93f0f55ff6.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/death sound effect/1.mp3"
+dest_files=[ "res://.import/1.mp3-441b2e2dd2cedcaeb075bf93f0f55ff6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

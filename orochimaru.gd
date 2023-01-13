@@ -30,13 +30,15 @@ func flip_up():
 
 func _on_Hurtbox_area_entered(area):
 	if HEALTH != 1:
-		#$hit.play()
+		$hit.play()
 		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
 		HEALTH = HEALTH -1
 	else:
+		$deathsound.play()
 		dead = true
-		#$EnemyDeathEffect.play("Animate")
 		var enemyDeathEffect = EnemyDeathEffect.instance()
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = $death.global_position
 		queue_free()
+
+

@@ -55,7 +55,7 @@ func _on_Hurtbox_area_entered(area):
 		#hurtbox.create_hit_effect()
 		#hurtbox.start_invincibility(0.4)
 	else:
-
+		$deathsound.play()
 		dead = true
 		var enemyDeathEffect = tobideath.instance()
 		get_parent().add_child(enemyDeathEffect)

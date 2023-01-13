@@ -9,7 +9,7 @@ var direction = Vector2(1,0)
 var attack = false
 var dead   = false
 
-export var HEALTH  = 10
+export var HEALTH  = 100
 onready var hurtbox  = $HurtBox
 var secondForm = false
 var new = newForm.instance()
@@ -23,8 +23,11 @@ var jiraya =Jiraya.instance()
 var smoke = SMOKE.instance()
 var throwtimer = 0
 var naruto3 = NARUTO3.instance()
+onready var label = $Health/Label
+
 
 func _process(delta):
+	label.text = str(HEALTH)+ " HP"
 	if Input.is_action_just_pressed("throw") && !secondForm:
 		$AnimatedSprite.play("throw")
 	
@@ -65,9 +68,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play("stanceRight")
 
 
-
-
-
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
@@ -100,6 +100,10 @@ func _physics_process(delta):
 	# option to transform into second form animation by pressing "X"
 	
 	if Input.is_action_just_pressed("transform") && !secondForm:
+		if HEALTH <80 :
+			HEALTH=HEALTH+20
+		else:
+			HEALTH=100
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -118,6 +122,7 @@ func _physics_process(delta):
 
 	# option to go back to first form after transforming by pressing "Q"
 	if (Input.is_action_just_pressed("goBack") && secondForm ):
+		#HEALTH=10 
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -164,10 +169,10 @@ func _on_Hurtbox_invincibility_started():
 
 
 func _on_Hurtbox_area_entered(area):
-	if HEALTH != 1:
+	if HEALTH != 10:
 		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
 		$Hurt.play()
-		HEALTH = HEALTH -1
+		HEALTH = HEALTH -10
 		#yield(shake_camera(0.3, 10), "tween_completed")
 	else:
 		dead = true

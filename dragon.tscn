@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/tobirama_edo_nzc_sheet_by_frank14kilate_d6gll9_by_gogeta10_d6k5wqk-fullview.png" type="Texture" id=1]
 [ext_resource path="res://dragon.gd" type="Script" id=2]
@@ -72,13 +72,17 @@ animations = [ {
 radius = 20.0
 height = 290.0
 
+[sub_resource type="RayShape2D" id=13]
+length = 153.845
+
 [node name="dragon" type="Area2D"]
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-animation = "idle"
+frame = 8
+speed_scale = 1.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 6, -9 )
@@ -88,9 +92,18 @@ shape = SubResource( 12 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -8, 2 )
 
-[node name="Hitbox" parent="." instance=ExtResource( 4 )]
-
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
 
-[editable path="Hitbox"]
+[node name="Hitbox" parent="." instance=ExtResource( 4 )]
+position = Vector2( -4, 10 )
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -106, -22 )
+rotation = -1.53757
+scale = Vector2( 18.2533, 1.87817 )
+shape = SubResource( 13 )
+
 [editable path="Hurtbox"]
+[editable path="Hitbox"]

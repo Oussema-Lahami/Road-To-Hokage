@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=116 format=2]
+=======
+[gd_scene load_steps=114 format=2]
+>>>>>>> 32183c95a910409d6d6539f9d235c6e5cfbafe7a
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -14,9 +18,13 @@
 [ext_resource path="res://Music and Sounds/Naruto_Shippuden_Ultimate_Ninja_Storm_2_-_Sakuras_Good_Fight_Soundtrack.mp3" type="AudioStream" id=12]
 [ext_resource path="res://world/ape.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Froggy Jiraya.tscn" type="PackedScene" id=14]
+<<<<<<< HEAD
 [ext_resource path="res://World/ape.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Raven.tscn" type="PackedScene" id=16]
 [ext_resource path="res://itachi v2.tscn" type="PackedScene" id=17]
+=======
+[ext_resource path="res://NarutoHokage.tscn" type="PackedScene" id=15]
+>>>>>>> 32183c95a910409d6d6539f9d235c6e5cfbafe7a
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -1018,8 +1026,12 @@ position = Vector2( 206, 808 )
 position = Vector2( 1364, 806 )
 
 [node name="CactuslelTroll" parent="YSort/Cactus" instance=ExtResource( 7 )]
+<<<<<<< HEAD
 visible = false
 position = Vector2( -148, 382 )
+=======
+position = Vector2( -146, 372 )
+>>>>>>> 32183c95a910409d6d6539f9d235c6e5cfbafe7a
 
 [node name="Dialogue" type="Control" parent="."]
 visible = false
@@ -1050,7 +1062,11 @@ margin_left = -57.0
 margin_top = -6.0
 margin_right = 128.0
 margin_bottom = 127.0
+<<<<<<< HEAD
 text = "be carful my son in this level it will become harder, but i am proud of you"
+=======
+text = "Hey look who is Here it is Naruto from the Future he came to accompany you ."
+>>>>>>> 32183c95a910409d6d6539f9d235c6e5cfbafe7a
 valign = 1
 autowrap = true
 
@@ -1124,6 +1140,7 @@ one_shot = true
 [node name="song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 
+<<<<<<< HEAD
 [node name="Lahami" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1221, 94 )
 
@@ -1155,6 +1172,10 @@ position = Vector2( -106, 193 )
 
 [node name="itachi v2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1485, 478 )
+=======
+[node name="NarutoHokage" parent="." instance=ExtResource( 15 )]
+position = Vector2( -118, -106 )
+>>>>>>> 32183c95a910409d6d6539f9d235c6e5cfbafe7a
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]
