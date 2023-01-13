@@ -149,8 +149,8 @@ animations = [ {
 radius = 17.4282
 height = 30.1051
 
-[sub_resource type="RayShape2D" id=63]
-length = 24.4187
+[sub_resource type="CircleShape2D" id=65]
+radius = 45.8339
 
 [sub_resource type="Animation" id=62]
 resource_name = "New Anim"
@@ -204,10 +204,10 @@ scale = Vector2( 0.73763, 0.455705 )
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="HitboxHand/HandHitbox" index="0"]
-position = Vector2( 5.26904, 28.9019 )
+position = Vector2( -29.5297, -11.1511 )
 rotation = -1.55465
 scale = Vector2( -3.01962, 2.23736 )
-shape = SubResource( 63 )
+shape = SubResource( 65 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 62 )
@@ -218,7 +218,6 @@ collision_mask = 8
 [node name="CollisionShape2D" parent="worldhitbox" index="0"]
 position = Vector2( 24.1596, 22.0724 )
 rotation = -1.49818
-scale = Vector2( 1, 1 )
 shape = SubResource( 64 )
 
 [editable path="HitboxHand/HandHitbox"]

@@ -100,10 +100,10 @@ func _physics_process(delta):
 	# option to transform into second form animation by pressing "X"
 	
 	if Input.is_action_just_pressed("transform") && !secondForm:
-		if HEALTH <5 :
-			HEALTH=HEALTH+2
+		if HEALTH <80 :
+			HEALTH=HEALTH+20
 		else:
-			HEALTH=6
+			HEALTH=100
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
