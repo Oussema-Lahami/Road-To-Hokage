@@ -39,8 +39,8 @@ extents = Vector2( 43.5, 46 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 37.5, 45.5 )
 
-[sub_resource type="RayShape2D" id=4]
-length = 133.155
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.0783, 106.509 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 43.3452, 62 )
@@ -52,6 +52,7 @@ script = ExtResource( 1 )
 modulate = Color( 0.945098, 0.745098, 0.745098, 1 )
 position = Vector2( 432, 320 )
 frames = SubResource( 1 )
+frame = 10
 speed_scale = 1.4
 flip_h = true
 
@@ -66,14 +67,14 @@ collision_layer = 16
 position = Vector2( 430.5, 319 )
 shape = SubResource( 3 )
 
-[node name="katon" parent="." instance=ExtResource( 3 )]
+[node name="firejiraya" parent="." instance=ExtResource( 3 )]
 collision_mask = 6
 
-[node name="CollisionShape2D" parent="katon" index="0"]
-position = Vector2( 460, 328 )
+[node name="CollisionShape2D" parent="firejiraya" index="0"]
+position = Vector2( 431.467, 318.849 )
 rotation = 1.55057
 scale = Vector2( 16.32, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="attack" type="Area2D" parent="."]
 
@@ -112,9 +113,9 @@ volume_db = 11.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
-[connection signal="body_entered" from="katon" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="firejiraya" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 
 [editable path="Hurtbox"]
-[editable path="katon"]
+[editable path="firejiraya"]

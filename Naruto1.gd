@@ -178,6 +178,15 @@ func _on_Hurtbox_area_entered(area):
 			dead = true
 			dying_state()
 		#yield(shake_camera(0.3, 10), "tween_completed")
+	if area.name == "firejiraya": 
+		if HEALTH > 40:
+			HEALTH = HEALTH - 40
+			bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / (HEALTH/10))
+			$Hurt.play()
+		elif HEALTH <= 40:
+			dead = true
+			dying_state()
+		#yield(shake_camera(0.3, 10), "tween_completed")
 	elif HEALTH != 10:
 		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH*10)
 		$Hurt.play()

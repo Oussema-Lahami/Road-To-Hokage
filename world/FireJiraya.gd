@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-const tobideath = preload("res://Effects/TobiramaDeathEffect.tscn")
+const tobideath = preload("res://Effects/JirayaDeathEffect.tscn")
+const jiraya2 = preload("res://tobirama.tscn")
 var speed = 120
 var motion = Vector2.ZERO
 var knockback = Vector2.ZERO
@@ -37,6 +38,8 @@ func _on_Hurtbox_area_entered(area):
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 		queue_free()
+		#$AnimatedSprite.visible=false
+		#var jir = jiraya2.instance()
 
 
 func _on_Hurtbox_area_exited(area):
