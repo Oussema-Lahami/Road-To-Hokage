@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/itachi/itachi.png" type="Texture" id=1]
 [ext_resource path="res://katon.gd" type="Script" id=2]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -39,6 +40,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=7]
 radius = 38.0132
 
+[sub_resource type="CircleShape2D" id=8]
+radius = 37.3333
+
 [node name="katon" type="Area2D"]
 scale = Vector2( 0.75, 0.75 )
 collision_layer = 0
@@ -56,4 +60,13 @@ shape = SubResource( 7 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
+[node name="katon" parent="." instance=ExtResource( 3 )]
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="katon" index="0"]
+position = Vector2( -5.33333, 0 )
+shape = SubResource( 8 )
+
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+
+[editable path="katon"]

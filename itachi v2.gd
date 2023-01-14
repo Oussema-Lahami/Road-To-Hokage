@@ -1,11 +1,14 @@
 extends KinematicBody2D
 var KATON = preload("res://katon.tscn")
-
+const tobideath = preload("res://Effects/EnemyDeathEffect.tscn")
+var dead   = false
+export var HEALTH  = 12
+export var FRICTION = 200
+onready var hurtbox  = $HurtBox
+onready var bar  = $Health/Bar
 
 func _ready():
 	$AnimatedSprite.play("stance")
-
-
 
 func _on_shoot_timeout():
 	var katon = KATON.instance()
@@ -17,15 +20,26 @@ func _on_shoot_timeout():
 
 
 func _on_attack2_area_entered(area):
-	$katon.play()
-	$katonStop.start()
-	$AnimatedSprite.play("katon")
-	$shoot.start()
-
+		$katon.play()
+		$katonStop.start()
+		$AnimatedSprite.play("katon")
+		$shoot.start()
 
 func _on_attack2_area_exited(area):
 	$AnimatedSprite.play("stance")
 
-
 func _on_katonStop_timeout():
 	$katon.stop()
+
+func _on_Hurtbox_area_entered(area):
+	if HEALTH != 1:
+		$hit.play()
+		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
+		HEALTH = HEALTH -1
+	else:
+		$deathsound.play()
+		dead = true
+		var enemyDeathEffect = tobideath.instance()
+		get_parent().add_child(enemyDeathEffect)
+		enemyDeathEffect.global_position = global_position
+		queue_free()
