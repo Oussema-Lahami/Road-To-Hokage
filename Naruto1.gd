@@ -169,10 +169,19 @@ func _on_Hurtbox_invincibility_started():
 
 
 func _on_Hurtbox_area_entered(area):
-	if HEALTH != 10:
-		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
+	if area.name == "katon": 
+		if HEALTH > 20:
+			HEALTH = HEALTH - 20
+			bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / (HEALTH/10))
+			$Hurt.play()
+		elif HEALTH <= 20:
+			dead = true
+			dying_state()
+		#yield(shake_camera(0.3, 10), "tween_completed")
+	elif HEALTH != 10:
+		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH*10)
 		$Hurt.play()
-		HEALTH = HEALTH -10
+		HEALTH = HEALTH - 10
 		#yield(shake_camera(0.3, 10), "tween_completed")
 	else:
 		dead = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://World/ape.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Raven.tscn" type="PackedScene" id=16]
 [ext_resource path="res://itachi v2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://NarutoHokage.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Music and Sounds/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg" type="AudioStream" id=19]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -1117,10 +1119,6 @@ But check your reality, maybe your sensei is an imposter"
 valign = 1
 autowrap = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
 [node name="song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 
@@ -1153,13 +1151,41 @@ position = Vector2( -108, 209 )
 [node name="Raven3" parent="ravens" instance=ExtResource( 16 )]
 position = Vector2( -106, 193 )
 
+[node name="itachi v4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 547, 519 )
+
+[node name="tobirama" parent="." instance=ExtResource( 11 )]
+position = Vector2( 547, 259 )
+
+[node name="tobirama2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 339, 405 )
+
+[node name="itachi v3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 526, 357 )
+
 [node name="itachi v2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1485, 478 )
+
+[node name="NarutoHokage" parent="." instance=ExtResource( 18 )]
+position = Vector2( -56, -54 )
+
+[node name="NarutoTalk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+volume_db = 4.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 13.89
+one_shot = true
+
+[node name="narutoyezzy" type="Timer" parent="."]
+wait_time = 3.26
+one_shot = true
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]
 [connection signal="body_entered" from="itachiarea" to="itachi" method="_on_itachiarea_body_entered"]
 [connection signal="body_exited" from="itachiarea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]
 [connection signal="body_exited" from="itachiarea" to="itachi" method="_on_itachiarea_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="timerdead" to="." method="_on_timerdead_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="narutoyezzy" to="." method="_on_narutoyezzy_timeout"]

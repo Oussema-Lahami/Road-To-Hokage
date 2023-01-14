@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg-33ab25011363d33f236b99996ce0ea84.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg"
+dest_files=[ "res://.import/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg-33ab25011363d33f236b99996ce0ea84.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

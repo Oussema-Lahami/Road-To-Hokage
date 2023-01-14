@@ -5,21 +5,27 @@ var smoke = SMOKE.instance()
 
 
 func _ready():
+	$narutoyezzy.start()
+	
 	Global.current_level=2
+	$NarutoTalk.play()
+	yield(get_tree().create_timer(12), "timeout")
 	var level_name = levelname.instance()
-	add_child(level_name)
 	add_child(level_name)
 	#smoke.scale.x = 2
 	#smoke.scale.y = 2
-	#$starting.play()
 	$Timer.start()
-	#$Timer2.start()
+
+
 func _on_Timer_timeout():
 	$song.play()
 	#$starting.stop()
 	#Global.play_music()
 	pass
 
-
 func _on_timerdead_timeout():
 	$ravens.visible = true
+
+func _on_narutoyezzy_timeout():
+	$NarutoTalk.stop()
+
