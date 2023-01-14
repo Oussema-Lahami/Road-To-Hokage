@@ -1050,7 +1050,8 @@ margin_left = -58.0
 margin_top = -23.0
 margin_right = 127.0
 margin_bottom = 110.0
-text = "be carful my son in this level it will become harder, but i am proud of you"
+text = "I am proud of you !
+But be careful my son, in this level it will be even harder."
 valign = 1
 autowrap = true
 
@@ -1112,8 +1113,8 @@ margin_left = -58.0
 margin_top = -19.0
 margin_right = 127.0
 margin_bottom = 114.0
-text = "Dont get any any ideas, we are still enemies.
-But check your reality, maybe your sensei is an imposter"
+text = "Dont get any ideas, we are still enemies.
+But check your reality, maybe your sensei is an imposter !"
 valign = 1
 autowrap = true
 
@@ -1172,7 +1173,7 @@ stream = ExtResource( 19 )
 volume_db = 4.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 13.89
+wait_time = 15.0
 one_shot = true
 
 [node name="narutoyezzy" type="Timer" parent="."]
