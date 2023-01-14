@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://itachi v2.tscn" type="PackedScene" id=17]
 [ext_resource path="res://NarutoHokage.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Music and Sounds/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg" type="AudioStream" id=19]
+[ext_resource path="res://world/FireJiraya.tscn" type="PackedScene" id=20]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -1036,22 +1037,19 @@ margin_top = 70.0
 margin_right = 145.0
 margin_bottom = 107.0
 color = Color( 0.576471, 0.47451, 0.27451, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
 margin_left = -60.0
 margin_top = 1.0
 margin_right = 124.0
 margin_bottom = 97.0
-color = Color( 0.345098, 0.545098, 0.321569, 1 )
+color = Color( 0.870588, 0.513726, 0.133333, 1 )
 
 [node name="Label" type="Label" parent="Dialogue/ColorRect"]
-margin_left = -57.0
-margin_top = -6.0
-margin_right = 128.0
-margin_bottom = 127.0
+margin_left = -58.0
+margin_top = -23.0
+margin_right = 127.0
+margin_bottom = 110.0
 text = "be carful my son in this level it will become harder, but i am proud of you"
 valign = 1
 autowrap = true
@@ -1107,13 +1105,13 @@ margin_left = -60.0
 margin_top = 1.0
 margin_right = 124.0
 margin_bottom = 97.0
-color = Color( 0.345098, 0.545098, 0.321569, 1 )
+color = Color( 0.827451, 0.6, 0.45098, 1 )
 
 [node name="Label" type="Label" parent="Dialogue2/ColorRect"]
-margin_left = -57.0
-margin_top = -6.0
-margin_right = 128.0
-margin_bottom = 127.0
+margin_left = -58.0
+margin_top = -19.0
+margin_right = 127.0
+margin_bottom = 114.0
 text = "Dont get any any ideas, we are still enemies.
 But check your reality, maybe your sensei is an imposter"
 valign = 1
@@ -1152,7 +1150,7 @@ position = Vector2( -108, 209 )
 position = Vector2( -106, 193 )
 
 [node name="itachi v4" parent="." instance=ExtResource( 17 )]
-position = Vector2( 547, 519 )
+position = Vector2( 518, 516 )
 
 [node name="tobirama" parent="." instance=ExtResource( 11 )]
 position = Vector2( 547, 259 )
@@ -1167,7 +1165,7 @@ position = Vector2( 526, 357 )
 position = Vector2( 1485, 478 )
 
 [node name="NarutoHokage" parent="." instance=ExtResource( 18 )]
-position = Vector2( -56, -54 )
+position = Vector2( 663, -302 )
 
 [node name="NarutoTalk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 19 )
@@ -1180,6 +1178,9 @@ one_shot = true
 [node name="narutoyezzy" type="Timer" parent="."]
 wait_time = 3.26
 one_shot = true
+
+[node name="FireJiraya" parent="." instance=ExtResource( 20 )]
+position = Vector2( 848, 558 )
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]

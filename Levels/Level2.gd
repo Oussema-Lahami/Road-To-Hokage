@@ -9,7 +9,7 @@ func _ready():
 	
 	Global.current_level=2
 	$NarutoTalk.play()
-	yield(get_tree().create_timer(12), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	var level_name = levelname.instance()
 	add_child(level_name)
 	#smoke.scale.x = 2
