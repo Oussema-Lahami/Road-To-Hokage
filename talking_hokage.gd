@@ -24,3 +24,5 @@ func _on_dead_timeout():
 	queue_free()
 	get_parent().get_node("Dialogue").visible = false
 	get_parent().get_node("song").play()
+
+

@@ -18,14 +18,11 @@ func _physics_process(delta):
 	if player && !attack :
 		$AnimatedSprite.play("run")
 		motion = position.direction_to(player.position) * speed
-		print(motion)
 	elif attack:
 		$AnimatedSprite.play("attack3") 
 		motion = position.direction_to(player.position) * speed
-		print(motion)
 	elif player == null:
 		$AnimatedSprite.play("idle")
-		print(motion)
 	$AnimatedSprite.flip_h = motion.x < 0
 func flip_right():
 	$AnimatedSprite.flip_h = true

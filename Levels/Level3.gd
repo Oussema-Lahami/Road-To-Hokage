@@ -9,3 +9,8 @@ func _ready():
 
 func _on_Timer_timeout():
 	$song.play()
+
+
+func _on_Final_Battle_body_entered(body):
+	$song.stop()
+	#$Final_Battle/Final_Battle2.play()

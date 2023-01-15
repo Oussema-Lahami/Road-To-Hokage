@@ -159,25 +159,20 @@ func _on_Timer_timeout():
 	get_parent().add_child(naruto3)
 	naruto3.global_position = $Position2D2.global_position
 
-
-func _on_Hurtbox_invincibility_ended():
-	pass # Replace with function body.
-
-
-func _on_Hurtbox_invincibility_started():
-	pass # Replace with function body.
-
-
 func _on_Hurtbox_area_entered(area):
 	if area.name == "katon": 
 		if HEALTH > 20:
 			HEALTH = HEALTH - 20
 			bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / (HEALTH/10))
 			$Hurt.play()
+			#var duration = 1
+			#var amplitude = 100
+			#shake_camera(0.3,10)
+
 		elif HEALTH <= 20:
 			dead = true
 			dying_state()
-		#yield(shake_camera(0.3, 10), "tween_completed")
+
 	if area.name == "firejiraya": 
 		if HEALTH > 40:
 			HEALTH = HEALTH - 40
@@ -209,3 +204,7 @@ func shake_camera(duration, amplitude):
 	yield(cam_tween, "tween_completed")
 	$Camera2D.offset = Vector2.ZERO
 	
+
+
+func _on_Final_Battle_body_entered():
+	pass # Replace with function body.

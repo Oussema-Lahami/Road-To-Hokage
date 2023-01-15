@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/The-Final-Clash-_256-kbps_.ogg-709b320cfcc4607e83de74e876fb0b42.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/The-Final-Clash-_256-kbps_.ogg"
+dest_files=[ "res://.import/The-Final-Clash-_256-kbps_.ogg-709b320cfcc4607e83de74e876fb0b42.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
