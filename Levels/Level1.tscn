@@ -531,6 +531,10 @@ tile_data = PoolIntArray( -917514, 0, 0, -917513, 0, 1, -917512, 0, 1, -917511, 
 [node name="Naruto1" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( -22, 135 )
 
+[node name="tobirama5" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1196, 98 )
+scale = Vector2( 1.46469, 1.5176 )
+
 [node name="Bush" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 7, 89 )
 
@@ -656,6 +660,15 @@ position = Vector2( 756, 112 )
 
 [node name="tobirama" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 486, -22 )
+
+[node name="tobirama6" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 226, 515 )
+
+[node name="tobirama7" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1937, 3 )
+
+[node name="tobirama8" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1320, 746 )
 
 [node name="hashirama" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 539, -339 )
@@ -909,7 +922,16 @@ rotation = 3.14159
 scale = Vector2( 5.41224, -6.30362 )
 
 [node name="Raven" parent="." instance=ExtResource( 18 )]
-position = Vector2( 205, 17 )
+position = Vector2( 2205, 417 )
+
+[node name="Raven2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2009, 261 )
+
+[node name="Raven3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1471, 288 )
+
+[node name="Raven4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 175, 17 )
 
 [connection signal="body_entered" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="Jiraya" method="_on_JirayaArea_body_exited"]

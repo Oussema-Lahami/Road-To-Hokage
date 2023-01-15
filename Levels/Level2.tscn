@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://World/CaveTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/DesertGrassBackground.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://World/Cactus.tscn" type="PackedScene" id=6]
-[ext_resource path="res://world/Cactus2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://world/Grass.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Naruto1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=10]
@@ -17,7 +16,6 @@
 [ext_resource path="res://World/ape.tscn" type="PackedScene" id=15]
 [ext_resource path="res://World/Raven.tscn" type="PackedScene" id=16]
 [ext_resource path="res://itachi v2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://NarutoHokage.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Music and Sounds/IM_HOME_EVERYBODY_NARUTO_UZUMAKI_HAS_RETURNED_TO_THE_HIDDEN_LEAF_VILLAGE.ogg" type="AudioStream" id=19]
 [ext_resource path="res://world/FireJiraya.tscn" type="PackedScene" id=20]
 [ext_resource path="res://world/Entrance2.tscn" type="PackedScene" id=21]
@@ -986,7 +984,7 @@ position = Vector2( -169, 639 )
 position = Vector2( -233, 508 )
 
 [node name="tobirama" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 321, 626 )
+position = Vector2( 726, 647 )
 
 [node name="Cactus" type="YSort" parent="YSort"]
 
@@ -1026,16 +1024,13 @@ position = Vector2( 206, 808 )
 [node name="Cactus6" parent="YSort/Cactus" instance=ExtResource( 6 )]
 position = Vector2( 1364, 806 )
 
-[node name="CactuslelTroll" parent="YSort/Cactus" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( -148, 382 )
-
 [node name="Dialogue" type="Control" parent="."]
 visible = false
 anchor_right = 10.0
-margin_top = 549.0
-margin_right = 40.0
-margin_bottom = 589.0
+margin_left = 553.0
+margin_top = 335.0
+margin_right = 593.0
+margin_bottom = 375.0
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue"]
 margin_left = 88.0
@@ -1062,10 +1057,10 @@ valign = 1
 autowrap = true
 
 [node name="froggyjiraya" parent="." instance=ExtResource( 14 )]
-position = Vector2( -344, 404 )
+position = Vector2( 0, 186 )
 
 [node name="JirayaArea" type="Area2D" parent="."]
-position = Vector2( -139, 539 )
+position = Vector2( 205, 321 )
 collision_layer = 0
 collision_mask = 2
 
@@ -1074,14 +1069,14 @@ position = Vector2( 126, 112 )
 shape = SubResource( 98 )
 
 [node name="whida AirBag" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9, 686 )
+position = Vector2( 335, 484 )
 
 [node name="itachi" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8, 472 )
+position = Vector2( -95, 557 )
 collision_layer = 0
 
 [node name="itachiarea" type="Area2D" parent="."]
-position = Vector2( -95, 453 )
+position = Vector2( -198, 538 )
 collision_layer = 0
 collision_mask = 2
 
@@ -1098,10 +1093,10 @@ margin_right = 34.0
 margin_bottom = 206.0
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue2"]
-margin_left = 92.0
-margin_top = 256.0
-margin_right = 149.0
-margin_bottom = 293.0
+margin_left = -7.0
+margin_top = 340.0
+margin_right = 50.0
+margin_bottom = 377.0
 color = Color( 0.576471, 0.47451, 0.27451, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -1135,7 +1130,7 @@ wait_time = 2.0
 
 [node name="ravens" type="YSort" parent="."]
 visible = false
-position = Vector2( 5, 219 )
+position = Vector2( -95, 328 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Raven" parent="ravens" instance=ExtResource( 16 )]
@@ -1157,24 +1152,22 @@ position = Vector2( -108, 209 )
 position = Vector2( -106, 193 )
 
 [node name="itachi v4" parent="." instance=ExtResource( 17 )]
-position = Vector2( 518, 516 )
+position = Vector2( 1379, 229 )
 
 [node name="tobirama" parent="." instance=ExtResource( 11 )]
-position = Vector2( 547, 259 )
+position = Vector2( 1348, 317 )
 
 [node name="tobirama2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 339, 405 )
+position = Vector2( 808, 99 )
 
 [node name="itachi v3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 526, 357 )
+position = Vector2( 574, 29 )
 
 [node name="itachi v2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1485, 478 )
 
-[node name="NarutoHokage" parent="." instance=ExtResource( 18 )]
-position = Vector2( 663, -302 )
-
 [node name="NarutoTalk" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 44, 68 )
 stream = ExtResource( 19 )
 volume_db = 4.0
 
@@ -1187,7 +1180,7 @@ wait_time = 3.26
 one_shot = true
 
 [node name="FireJiraya" parent="." instance=ExtResource( 20 )]
-position = Vector2( 848, 558 )
+position = Vector2( -110, 226 )
 
 [node name="Entrance2" parent="." instance=ExtResource( 21 )]
 position = Vector2( -2, 12 )
@@ -1197,25 +1190,25 @@ position = Vector2( 1713, -128 )
 shape = SubResource( 99 )
 
 [node name="hashirama" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1501, 346 )
+position = Vector2( 1292, 472 )
 
 [node name="hashirama2" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1431, 535 )
+position = Vector2( 1004, 632 )
 
 [node name="hashirama3" parent="." instance=ExtResource( 23 )]
 position = Vector2( 153, 633 )
 
 [node name="Danzo" parent="." instance=ExtResource( 22 )]
-position = Vector2( 976, 200 )
+position = Vector2( 836, 264 )
 
 [node name="Danzo3" parent="." instance=ExtResource( 22 )]
-position = Vector2( 381, 718 )
+position = Vector2( -208, 15 )
 
 [node name="Danzo4" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1361, 229 )
+position = Vector2( 30, 590 )
 
 [node name="Danzo2" parent="." instance=ExtResource( 22 )]
-position = Vector2( 443, 434 )
+position = Vector2( 228, 126 )
 
 [connection signal="body_entered" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_entered"]
 [connection signal="body_exited" from="JirayaArea" to="froggyjiraya" method="_on_JirayaArea_body_exited"]
