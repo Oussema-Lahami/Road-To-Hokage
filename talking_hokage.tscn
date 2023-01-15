@@ -1,0 +1,103 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Music and Sounds/Itachi Uchiha Words - Death #shorts.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/naruto hokage/0.png" type="Texture" id=2]
+[ext_resource path="res://talking_hokage.gd" type="Script" id=3]
+[ext_resource path="res://assets/naruto hokage/2.png" type="Texture" id=4]
+[ext_resource path="res://assets/naruto hokage/3.png" type="Texture" id=5]
+[ext_resource path="res://assets/naruto hokage/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/tobirama2/341.png" type="Texture" id=7]
+[ext_resource path="res://assets/tobirama2/347.png" type="Texture" id=8]
+[ext_resource path="res://assets/tobirama2/339.png" type="Texture" id=9]
+[ext_resource path="res://assets/tobirama2/340.png" type="Texture" id=10]
+[ext_resource path="res://assets/tobirama2/342.png" type="Texture" id=11]
+[ext_resource path="res://assets/tobirama2/348.png" type="Texture" id=12]
+[ext_resource path="res://assets/tobirama2/352.png" type="Texture" id=14]
+[ext_resource path="res://assets/tobirama2/351.png" type="Texture" id=15]
+[ext_resource path="res://assets/tobirama2/343.png" type="Texture" id=16]
+[ext_resource path="res://assets/tobirama2/349.png" type="Texture" id=17]
+[ext_resource path="res://assets/tobirama2/345.png" type="Texture" id=18]
+[ext_resource path="res://assets/tobirama2/346.png" type="Texture" id=19]
+[ext_resource path="res://assets/tobirama2/344.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.5, 28 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23, 24.75 )
+
+[node name="Hokage" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 332.622, 247.786 )
+scale = Vector2( 0.836111, 1.02621 )
+frames = SubResource( 1 )
+speed_scale = 0.6
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 330.5, 247 )
+shape = SubResource( 2 )
+
+[node name="Dialogue" type="Control" parent="."]
+visible = false
+margin_left = 345.0
+margin_top = 199.0
+margin_right = 518.0
+margin_bottom = 275.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue"]
+margin_top = 8.0
+margin_right = 172.0
+margin_bottom = 49.0
+color = Color( 0.713726, 0.486275, 0.486275, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
+margin_right = 172.0
+margin_bottom = 67.0
+color = Color( 0.952941, 0.772549, 0.772549, 1 )
+
+[node name="Label" type="Label" parent="Dialogue/ColorRect"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "I saw The Future I am Sure
+ you are gonna make it ! 
+Become the Hokage !
+The King of Konoha !"
+align = 1
+valign = 1
+
+[node name="TalkingArea" type="Area2D" parent="."]
+position = Vector2( 2, 361 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkingArea"]
+position = Vector2( 320, -119 )
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="dead" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="speech" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="body_entered" from="TalkingArea" to="." method="_on_TalkingArea_body_entered"]
+[connection signal="body_exited" from="TalkingArea" to="." method="_on_TalkingArea_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]
