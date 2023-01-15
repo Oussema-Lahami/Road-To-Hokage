@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SASUKE SCREAMING NARUTO.mp3-8cb2311cefd8e2d7b2d75e53392912ba.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/SASUKE SCREAMING NARUTO.mp3"
+dest_files=[ "res://.import/SASUKE SCREAMING NARUTO.mp3-8cb2311cefd8e2d7b2d75e53392912ba.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

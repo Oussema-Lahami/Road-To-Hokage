@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/enemies/Level1/sasuke.png" type="Texture" id=1]
 [ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sasuke1.gd" type="Script" id=5]
 [ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Music and Sounds/SASUKE SCREAMING NARUTO.mp3" type="AudioStream" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -162,12 +163,17 @@ height = 32.0
 [sub_resource type="CapsuleShape2D" id=28]
 height = 26.0
 
+[sub_resource type="CircleShape2D" id=29]
+radius = 93.086
+
 [node name="sasuke1" type="KinematicBody2D"]
+scale = Vector2( 1.25, 1.25 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 26 )
 animation = "challenge"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 2 )
@@ -184,7 +190,6 @@ position = Vector2( -1, -1 )
 shape = SubResource( 28 )
 
 [node name="ShadowSprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( -0.999996, 26 )
 scale = Vector2( 1.03125, 0.6 )
 texture = ExtResource( 4 )
@@ -221,7 +226,57 @@ pitch_scale = 0.16
 stream = ExtResource( 7 )
 volume_db = 11.965
 
+[node name="sasukeArea" type="Area2D" parent="."]
+position = Vector2( 202, 325 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sasukeArea"]
+position = Vector2( -202, -322 )
+shape = SubResource( 29 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 1.75
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Dialogue2" type="Control" parent="."]
+visible = false
+margin_left = 27.2
+margin_top = -21.5999
+margin_right = 218.2
+margin_bottom = 25.4001
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue2"]
+margin_top = 8.0
+margin_right = 142.0
+margin_bottom = 46.0
+color = Color( 0.713726, 0.486275, 0.486275, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue2/ColorRect"]
+margin_right = 142.0
+margin_bottom = 38.0
+color = Color( 0.952941, 0.772549, 0.772549, 1 )
+
+[node name="Label" type="Label" parent="Dialogue2/ColorRect"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "so you made it!
+see you around loser!"
+align = 1
+valign = 1
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="sasukeArea" to="." method="_on_sasukeArea_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]
