@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 300
+var speed = 600
 var direction = 1
 
 func set_rasengan_direction(dir):

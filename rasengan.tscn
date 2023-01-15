@@ -51,6 +51,7 @@ radius = 27.8927
 
 [node name="rasengan" type="Area2D"]
 position = Vector2( 139, 112 )
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 16
 script = ExtResource( 2 )
 
