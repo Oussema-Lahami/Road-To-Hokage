@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Narutos Rasengan.MP3.mp3-40d6a125934f5ce8638ed85767a8ba08.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Narutos Rasengan.MP3.mp3"
+dest_files=[ "res://.import/Narutos Rasengan.MP3.mp3-40d6a125934f5ce8638ed85767a8ba08.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

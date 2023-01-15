@@ -12,17 +12,20 @@ var dead   = false
 export var HEALTH  = 100
 onready var hurtbox  = $HurtBox
 var secondForm = false
+var thirdForm = false
 var new = newForm.instance()
 const SHURIKEN = preload("res://shuriken.tscn")
 const newForm = preload("res://naruto2.tscn") 
 const NARUTO3 = preload("res://naruto3.tscn")
 const SMOKE = preload("res://smoke.tscn")
 const Jiraya = preload("res://Jiraya.tscn")
+const sage = preload("res://sageMode.tscn")
 onready var bar  = $Health/Bar
 var jiraya =Jiraya.instance()
 var smoke = SMOKE.instance()
 var throwtimer = 0
 var naruto3 = NARUTO3.instance()
+var sageN = sage.instance()
 onready var label = $Health/Label
 
 
@@ -99,7 +102,9 @@ func _physics_process(delta):
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
 	
-	if Input.is_action_just_pressed("transform") && !secondForm:
+	if Input.is_action_just_pressed("transform") && !secondForm && !thirdForm :
+		if !naruto3.visible:
+			naruto3.visible = true
 		if HEALTH <80 :
 			HEALTH=HEALTH+20
 		else:
@@ -109,8 +114,9 @@ func _physics_process(delta):
 		smoke.set_z_index(1000)
 		smoke.play()
 		$SmokeSound.play()
-		new.get_node("Camera2D").starting()
+		#new.get_node("Camera2D").starting()
 		secondForm = true
+		thirdForm = false
 		$AnimatedSprite.visible = false
 		$healthBar.visible = false
 		if $AnimatedSprite.flip_h == true: 
@@ -118,10 +124,30 @@ func _physics_process(delta):
 		get_parent().add_child(new)
 		new.global_position = $Position2D2.global_position
 		$Timer.start()
+		
+	# option to transform into second form animation by pressing "F"
+	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm:
+		if !sageN.visible:
+			sageN.visible = true
+		if HEALTH <80 :
+			HEALTH=HEALTH+20
+		else:
+			HEALTH=100
+		add_child(smoke)
+		smoke.get_node("Position2D").position = $Position2D2.position
+		smoke.set_z_index(1000)
+		smoke.play()
+		$SmokeSound.play()
+		thirdForm = true
+		$AnimatedSprite.visible = false
+		$healthBar.visible = false
+		$Timer2.start()
+
+
 
 
 	# option to go back to first form after transforming by pressing "Q"
-	if (Input.is_action_just_pressed("goBack") && secondForm ):
+	if (Input.is_action_just_pressed("goBack") && (secondForm || thirdForm)):
 		#HEALTH=10 
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
@@ -130,12 +156,14 @@ func _physics_process(delta):
 		$SmokeSound.play()
 		get_node("Camera2D").starting()
 		secondForm = false
+		thirdForm = false
 		$AnimatedSprite.visible = true
 		$CollisionShape2D.disabled = false
 		$Camera2D.current = true
 		$Position2D2.global_position = naruto3.global_position
 		naruto3.visible = false
-	
+		sageN.visible = false
+
 	# going back when running out of chakra
 	if naruto3.get_node("chakraBar/ChakraOver").value == 0 && secondForm:
 		add_child(smoke)
@@ -158,6 +186,14 @@ func _on_Timer_timeout():
 		naruto3.flip()
 	get_parent().add_child(naruto3)
 	naruto3.global_position = $Position2D2.global_position
+
+func _on_Timer2_timeout():
+	$Timer2.stop()
+	if $AnimatedSprite.flip_h == true:
+		sage.flip()
+	get_parent().add_child(sageN)
+	sageN.global_position = $Position2D.global_position
+
 
 func _on_Hurtbox_area_entered(area):
 	if area.name == "katon": 

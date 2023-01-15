@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Naruto - Rasengan (voice).mp3-4f3226cc60d3094180e1b7650fd00756.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Naruto - Rasengan (voice).mp3"
+dest_files=[ "res://.import/Naruto - Rasengan (voice).mp3-4f3226cc60d3094180e1b7650fd00756.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
