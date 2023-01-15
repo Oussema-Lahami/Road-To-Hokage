@@ -48,6 +48,6 @@ func _on_Hurtbox_area_entered(area):
 		dead = true
 		var enemyDeathEffect = tobideath.instance()
 		get_parent().add_child(enemyDeathEffect)
-		enemyDeathEffect.global_position = global_position
+		enemyDeathEffect.global_position = $Position2D.global_position
 		queue_free()
 

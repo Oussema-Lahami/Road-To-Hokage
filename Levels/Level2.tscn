@@ -1027,10 +1027,10 @@ position = Vector2( 1364, 806 )
 [node name="Dialogue" type="Control" parent="."]
 visible = false
 anchor_right = 10.0
-margin_left = 553.0
-margin_top = 335.0
-margin_right = 593.0
-margin_bottom = 375.0
+margin_left = 341.0
+margin_top = 323.0
+margin_right = 381.0
+margin_bottom = 363.0
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue"]
 margin_left = 88.0
