@@ -12,3 +12,6 @@ func _ready():
 	elif get_parent().name == "Level2":
 		$Label.text = "Welcome To Dotō Desert"
 		_show_name()
+	elif get_parent().name == "Level3":
+		$Label.text = "The Valley Of End : Yuki no Kuni"
+		_show_name()

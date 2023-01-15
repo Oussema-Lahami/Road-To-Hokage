@@ -4,6 +4,8 @@ const SMOKE = preload("res://smoke.tscn")
 var smoke = SMOKE.instance()
 
 func _ready():
+	$Danzo.flip_right()
+	$Danzo2.flip_right()
 	$narutoyezzy.start()
 	Global.current_level=2
 	$NarutoTalk.play()

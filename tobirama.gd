@@ -24,7 +24,7 @@ func _physics_process(delta):
 		$AnimatedSprite.play("run")
 		motion = position.direction_to(player.position) * speed
 	elif attack:
-		$AnimatedSprite.play("attack")
+		$AnimatedSprite.play("attack3") 
 		motion = position.direction_to(player.position) * speed
 	elif player == null:
 		$AnimatedSprite.play("idle")
@@ -51,9 +51,6 @@ func _on_Hurtbox_area_entered(area):
 		$hit.play()
 		bar.rect_size.x = bar.rect_size.x - (bar.rect_size.x / HEALTH)
 		HEALTH = HEALTH -1
-		#knockback = area.knockback_vector * 120
-		#hurtbox.create_hit_effect()
-		#hurtbox.start_invincibility(0.4)
 	else:
 		$deathsound.play()
 		dead = true
@@ -61,20 +58,3 @@ func _on_Hurtbox_area_entered(area):
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 		queue_free()
-
-func _on_Hurtbox_invincibility_ended():
-	pass # Replace with function body.
-
-
-func _on_Hurtbox_invincibility_started():
-	pass # Replace with function body.
-
-
-func _on_Hurtbox_area_exited(area):
-	pass # Replace with function body.
-
-
-
-func _on_Hitbox_body_entered(body):
-	pass
-	

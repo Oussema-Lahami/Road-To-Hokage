@@ -1,6 +1,6 @@
 extends KinematicBody2D
 var DRAGON = preload("res://dragon.tscn")
-const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const EnemyDeathEffect = preload("res://Effects/HashiramaDeathEffect.tscn")
 export var HEALTH  = 3
 var dead   = false
 var dragon_dead = false

@@ -1,0 +1,171 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://assets/danzo/51.png" type="Texture" id=1]
+[ext_resource path="res://assets/danzo/44.png" type="Texture" id=2]
+[ext_resource path="res://assets/danzo/42.png" type="Texture" id=3]
+[ext_resource path="res://assets/danzo/43.png" type="Texture" id=4]
+[ext_resource path="res://assets/danzo/52.png" type="Texture" id=5]
+[ext_resource path="res://assets/danzo/53.png" type="Texture" id=6]
+[ext_resource path="res://assets/danzo/55.png" type="Texture" id=7]
+[ext_resource path="res://assets/danzo/54.png" type="Texture" id=8]
+[ext_resource path="res://assets/danzo/49.png" type="Texture" id=9]
+[ext_resource path="res://assets/danzo/48.png" type="Texture" id=10]
+[ext_resource path="res://assets/danzo/15.png" type="Texture" id=11]
+[ext_resource path="res://assets/danzo/37.png" type="Texture" id=12]
+[ext_resource path="res://assets/danzo/9.png" type="Texture" id=13]
+[ext_resource path="res://assets/danzo/14.png" type="Texture" id=14]
+[ext_resource path="res://assets/danzo/39.png" type="Texture" id=15]
+[ext_resource path="res://assets/danzo/41.png" type="Texture" id=16]
+[ext_resource path="res://assets/danzo/38.png" type="Texture" id=17]
+[ext_resource path="res://assets/danzo/40.png" type="Texture" id=18]
+[ext_resource path="res://assets/danzo/29.png" type="Texture" id=19]
+[ext_resource path="res://assets/danzo/6.png" type="Texture" id=20]
+[ext_resource path="res://assets/danzo/25.png" type="Texture" id=21]
+[ext_resource path="res://assets/danzo/26.png" type="Texture" id=22]
+[ext_resource path="res://assets/danzo/27.png" type="Texture" id=23]
+[ext_resource path="res://assets/danzo/28.png" type="Texture" id=24]
+[ext_resource path="res://assets/danzo/30.png" type="Texture" id=25]
+[ext_resource path="res://assets/danzo/7.png" type="Texture" id=26]
+[ext_resource path="res://assets/danzo/50.png" type="Texture" id=27]
+[ext_resource path="res://assets/danzo/47.png" type="Texture" id=28]
+[ext_resource path="res://assets/danzo/45.png" type="Texture" id=29]
+[ext_resource path="res://assets/danzo/46.png" type="Texture" id=30]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=32]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Danzo.gd" type="Script" id=34]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=35]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 27 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "attack3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 26 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.37503
+height = 35.2499
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 231.138
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 107.075
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.5, 31.25 )
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 15.8334
+height = 0.0
+
+[node name="Danzo" type="KinematicBody2D"]
+script = ExtResource( 34 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 257.25, 159 )
+scale = Vector2( 0.809091, 1.25926 )
+frames = SubResource( 1 )
+animation = "idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 254, 151 )
+scale = Vector2( 0.639998, 1 )
+shape = SubResource( 2 )
+
+[node name="attack" type="Area2D" parent="."]
+position = Vector2( 223, 107 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( 34, 50 )
+shape = SubResource( 3 )
+
+[node name="jump" type="Area2D" parent="."]
+position = Vector2( 30, 50 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump"]
+position = Vector2( 231, 107 )
+shape = SubResource( 4 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 31 )]
+position = Vector2( 225, 102 )
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 34.5, 55.25 )
+shape = SubResource( 5 )
+
+[node name="ShadowSprite" type="Sprite" parent="."]
+position = Vector2( 253, 193 )
+scale = Vector2( 1.03125, 0.6 )
+texture = ExtResource( 32 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 33 )]
+position = Vector2( 227, 87 )
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
+position = Vector2( 32, 71 )
+rotation = -1.56918
+scale = Vector2( 1.26305, 3.02231 )
+shape = SubResource( 6 )
+one_way_collision_margin = 2.0
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 252.0
+margin_top = 115.0
+margin_right = 271.0
+margin_bottom = 116.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.592157, 0.207843, 0.168627, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 36 )
+volume_db = 11.965
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+volume_db = 12.0
+pitch_scale = 0.16
+
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
+[connection signal="body_entered" from="jump" to="." method="_on_jump_body_entered"]
+[connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_Hurtbox_area_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

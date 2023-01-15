@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/scene_transition.gd" type="Script" id=1]
 [ext_resource path="res://Font/Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/loading.PNG" type="Texture" id=3]
 [ext_resource path="res://orochimaru.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Intro/R.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RESET"
@@ -62,7 +63,7 @@ uppercase = true
 position = Vector2( 485, 315 )
 scale = Vector2( 3.725, 1.83684 )
 animation = "right"
-frame = 6
+frame = 14
 playing = true
 
 [node name="CollisionShape2D" parent="dissolve_rect/orochimaru" index="1"]
@@ -85,6 +86,11 @@ visible = false
 
 [node name="Health" parent="dissolve_rect/orochimaru" index="7"]
 visible = false
+
+[node name="sasukevsnaruto" type="Sprite" parent="dissolve_rect"]
+position = Vector2( 792, 304 )
+scale = Vector2( 0.774832, 0.565765 )
+texture = ExtResource( 5 )
 
 [node name="pc bl terma" type="Sprite" parent="dissolve_rect"]
 visible = false

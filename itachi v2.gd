@@ -1,8 +1,8 @@
 extends KinematicBody2D
 var KATON = preload("res://katon.tscn")
-const tobideath = preload("res://Effects/EnemyDeathEffect.tscn")
+const tobideath = preload("res://Effects/ItachiDeathEffect.tscn")
 var dead   = false
-export var HEALTH  = 12
+export var HEALTH  = 10
 export var FRICTION = 200
 onready var hurtbox  = $HurtBox
 onready var bar  = $Health/Bar
