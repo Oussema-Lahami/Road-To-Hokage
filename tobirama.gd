@@ -58,3 +58,7 @@ func _on_Hurtbox_area_entered(area):
 		get_parent().add_child(enemyDeathEffect)
 		enemyDeathEffect.global_position = global_position
 		queue_free()
+
+
+func _on_Hitbox_body_entered():
+	pass # Replace with function body.

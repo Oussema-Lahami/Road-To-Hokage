@@ -108,7 +108,7 @@ func _physics_process(delta):
 		#if HEALTH <80 :
 		#	HEALTH=HEALTH+20
 		#else:
-		HEALTH=1000
+		HEALTH=300
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)

@@ -272,8 +272,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=51]
-radius = 20.0
-height = 48.0
+radius = 29.0
+height = 66.0
 
 [sub_resource type="CircleShape2D" id=52]
 radius = 195.064
@@ -292,7 +292,7 @@ animation = "down"
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 306, 178 )
+position = Vector2( 303, 178 )
 shape = SubResource( 51 )
 
 [node name="Position2D" type="Position2D" parent="."]
