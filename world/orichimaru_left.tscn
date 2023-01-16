@@ -1,0 +1,182 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/enemies/Level1/KBE_Orochimaru.png" type="Texture" id=1]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Shadows/LargeShadow.png" type="Texture" id=6]
+[ext_resource path="res://world/orichimaru_left.gd" type="Script" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 686, 48, 66 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 48, 686, 48, 66 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 96, 686, 48, 66 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 144, 686, 48, 66 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 141, 686, 57, 66 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 198, 686, 57, 66 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 259, 686, 70, 66 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 331, 686, 76, 66 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 409, 686, 95, 66 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 504, 686, 95, 66 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 599, 686, 95, 66 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 694, 686, 95, 66 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 789, 686, 95, 66 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 883, 686, 86, 66 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 964, 686, 76, 66 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1038, 686, 65, 66 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1103, 686, 65, 66 )
+
+[sub_resource type="SpriteFrames" id=51]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=52]
+radius = 20.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id=53]
+radius = 195.064
+
+[sub_resource type="RectangleShape2D" id=54]
+extents = Vector2( 13.125, 20.5 )
+
+[node name="orichimaru_left" type="KinematicBody2D"]
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 300, 170 )
+frames = SubResource( 51 )
+animation = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 306, 178 )
+shape = SubResource( 52 )
+
+[node name="attack" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( 287, 170 )
+shape = SubResource( 53 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 303, 166 )
+shape = SubResource( 54 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 2 )]
+
+[node name="ShadowSprite" type="Sprite" parent="."]
+position = Vector2( 302, 184 )
+rotation = 0.119931
+scale = Vector2( 0.843749, 0.250001 )
+texture = ExtResource( 6 )
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = 293.0
+margin_top = 133.0
+margin_right = 311.0
+margin_bottom = 134.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.729412, 0.0745098, 0.737255, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_right = 18.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 11.0
+
+[node name="death" type="Position2D" parent="."]
+position = Vector2( 296, 182 )
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 12.0
+pitch_scale = 0.16
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

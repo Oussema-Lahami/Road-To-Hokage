@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
-
+#onready var fullscreen_button = $FullscreenButton
 #var VC            = preload(\"res://UI/VirtualControl.tscn\")
 var selected_menu = 0
 
@@ -22,11 +22,8 @@ func change_menu_color():
 			$Quit.color = Color.greenyellow
 
 func _ready():
+	#fullscreen_button.connect(\"pressed\", self, \"_on_fullscreen_button_pressed\")
 	change_menu_color()
-#	var canvas = CanvasLayer.new()
-#	add_child(canvas)
-#	var control = VC.instance()
-#	add_child(control)
 
 func _input(_event):
 	if Input.is_action_just_pressed(\"ui_down\"):
@@ -45,13 +42,16 @@ func _input(_event):
 				# New game
 # warning-ignore:return_value_discarded
 				SceneTransition.change_scene(\"res://Levels/Level1.tscn\")
-				#get_tree().change_scene(\"res://Levels/Level1.tscn\")
 			1:
-				# Load game
 				$Global.load_game()
 			2:
-				# Quit game
 				get_tree().quit()
+				
+func _on_fullscreen_button_pressed():
+	if OS.get_fullscreen():
+		OS.set_fullscreen(false)
+	else:
+		OS.set_fullscreen(true)
 "
 
 [node name="FirstMenu" type="Node2D"]

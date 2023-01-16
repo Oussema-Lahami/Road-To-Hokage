@@ -105,10 +105,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("transform") && !secondForm && !thirdForm :
 		if !naruto3.visible:
 			naruto3.visible = true
-		if HEALTH <80 :
-			HEALTH=HEALTH+20
-		else:
-			HEALTH=100
+		#if HEALTH <80 :
+		#	HEALTH=HEALTH+20
+		#else:
+		HEALTH=1000
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -118,6 +118,7 @@ func _physics_process(delta):
 		secondForm = true
 		thirdForm = false
 		$AnimatedSprite.visible = false
+		$Health.visible=false
 		$healthBar.visible = false
 		if $AnimatedSprite.flip_h == true: 
 			new.set_form_direction()
@@ -129,10 +130,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm:
 		if !sageN.visible:
 			sageN.visible = true
-		if HEALTH <80 :
-			HEALTH=HEALTH+20
-		else:
-			HEALTH=100
+		#if HEALTH <80 :
+		#	HEALTH=HEALTH+20
+		#else:
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -148,7 +148,8 @@ func _physics_process(delta):
 
 	# option to go back to first form after transforming by pressing "Q"
 	if (Input.is_action_just_pressed("goBack") && (secondForm || thirdForm)):
-		#HEALTH=10 
+		HEALTH=100
+		$Health.visible=true
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -240,7 +241,3 @@ func shake_camera(duration, amplitude):
 	yield(cam_tween, "tween_completed")
 	$Camera2D.offset = Vector2.ZERO
 	
-
-
-func _on_Final_Battle_body_entered():
-	pass # Replace with function body.

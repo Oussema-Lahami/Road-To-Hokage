@@ -42,7 +42,7 @@ func _input(_event):
 				SceneTransition.change_scene("res://Levels/Level1.tscn")
 				#get_tree().change_scene("res://Levels/Level1.tscn")
 			1:
-				# Load game
+				# Main Menu
 				SceneTransition.change_scene("res://UI/FirstMenu.tscn")
 			2:
 				# Quit game
