@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://World/WinterGrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://World/Snow.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://talking_hokage.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Music and Sounds/The-Final-Clash-_256-kbps_.ogg" type="AudioStream" id=14]
 [ext_resource path="res://sasuke1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://sasuke_final.tscn" type="PackedScene" id=16]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -81,7 +82,6 @@ position = Vector2( -88, -68 )
 scale = Vector2( 3.25625, 2.84722 )
 z_index = 3
 frames = SubResource( 12 )
-frame = 7
 playing = true
 centered = false
 
@@ -352,6 +352,9 @@ stream = ExtResource( 14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Final_Battle"]
 position = Vector2( 1660, 424 )
 shape = SubResource( 14 )
+
+[node name="sasuke_final" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1359, 655 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="TalkingArea" to="Hokage" method="_on_TalkingArea_body_entered"]
