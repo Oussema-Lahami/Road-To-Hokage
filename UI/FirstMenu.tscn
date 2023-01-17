@@ -73,10 +73,10 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [node name="New" type="ColorRect" parent="."]
-margin_left = 993.0
-margin_top = 485.0
-margin_right = 1134.0
-margin_bottom = 519.0
+margin_left = 852.0
+margin_top = 407.0
+margin_right = 993.0
+margin_bottom = 441.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -96,10 +96,10 @@ __meta__ = {
 }
 
 [node name="Load" type="ColorRect" parent="."]
-margin_left = 992.0
-margin_top = 529.0
-margin_right = 1134.0
-margin_bottom = 563.0
+margin_left = 851.0
+margin_top = 451.0
+margin_right = 993.0
+margin_bottom = 485.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -119,10 +119,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="ColorRect" parent="."]
-margin_left = 992.0
-margin_top = 571.0
-margin_right = 1134.0
-margin_bottom = 605.0
+margin_left = 851.0
+margin_top = 493.0
+margin_right = 993.0
+margin_bottom = 527.0
 color = Color( 0.458824, 0.160784, 0.160784, 1 )
 __meta__ = {
 "_edit_group_": true
