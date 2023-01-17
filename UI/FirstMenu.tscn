@@ -43,7 +43,8 @@ func _input(_event):
 # warning-ignore:return_value_discarded
 				SceneTransition.change_scene(\"res://Levels/Level1.tscn\")
 			1:
-				$Global.load_game()
+				#$Global.load_game()
+				pass
 			2:
 				get_tree().quit()
 				

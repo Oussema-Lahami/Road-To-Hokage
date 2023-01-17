@@ -280,12 +280,12 @@ margin_right = 19.0
 margin_bottom = 1.0
 color = Color( 0.262745, 0.941176, 0.0941176, 1 )
 
-[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+[node name="katon2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -31, -2 )
 collision_mask = 6
 gravity = 90.0
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" parent="katon2" index="0"]
 modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
 position = Vector2( 32, 71 )
 rotation = -1.56918
@@ -329,11 +329,11 @@ stream = ExtResource( 7 )
 [connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="katon2" to="." method="_on_Hitbox_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="katon" to="." method="_on_katon_body_entered"]
 [connection signal="body_exited" from="katon" to="." method="_on_katon_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
-[editable path="Hitbox"]
+[editable path="katon2"]
 [editable path="Hurtbox"]

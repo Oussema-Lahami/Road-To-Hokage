@@ -27,6 +27,7 @@ var naruto3 = NARUTO3.instance()
 var sageN = sage.instance()
 onready var label = $Health/Label
 var x_key_disabled = false
+var ff_key_disabled = false
 var f_key_disabled = true
 
 func _process(delta):
@@ -131,7 +132,7 @@ func _physics_process(delta):
 		Input.is_action_just_released("transform")
 		
 	# option to transform into second form animation by pressing "F"
-	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm && !f_key_disabled:
+	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm && !ff_key_disabled && !f_key_disabled:
 		if !sageN.visible:
 			sageN.visible = true
 		#if HEALTH <80 :
@@ -151,6 +152,7 @@ func _physics_process(delta):
 	if (Input.is_action_just_pressed("goBack") && (secondForm || thirdForm)):
 		HEALTH=100
 		x_key_disabled = true
+		ff_key_disabled=true 
 		$Health.visible=true
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
@@ -170,6 +172,7 @@ func _physics_process(delta):
 	# going back when running out of chakra
 	if naruto3.get_node("chakraBar/ChakraOver").value == 0 && secondForm:
 		add_child(smoke)
+		x_key_disabled=true
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
 		smoke.play()
