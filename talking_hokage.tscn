@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Music and Sounds/Itachi Uchiha Words - Death #shorts.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Music and Sounds/Level3-intro.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/naruto hokage/0.png" type="Texture" id=2]
 [ext_resource path="res://talking_hokage.gd" type="Script" id=3]
 [ext_resource path="res://assets/naruto hokage/2.png" type="Texture" id=4]

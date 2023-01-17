@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cactus.png-16270beb0f48a0b2bd86c663ffd7581a.stex"
+path="res://.import/Cactus.png-6a7460369452c344de02ca7db5ec75b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Cactus.png"
-dest_files=[ "res://.import/Cactus.png-16270beb0f48a0b2bd86c663ffd7581a.stex" ]
+source_file="res://world/Cactus.png"
+dest_files=[ "res://.import/Cactus.png-6a7460369452c344de02ca7db5ec75b2.stex" ]
 
 [params]
 

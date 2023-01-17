@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 const MAX_SPEED = 170
-
 const ACCELERATION = 1000
 const FRICTION = 1000
 var velocity = Vector2.ZERO
@@ -27,16 +26,17 @@ var throwtimer = 0
 var naruto3 = NARUTO3.instance()
 var sageN = sage.instance()
 onready var label = $Health/Label
-
+var x_key_disabled = false
+var f_key_disabled = true
 
 func _process(delta):
 	label.text = str(HEALTH)+ " HP"
 	if Input.is_action_just_pressed("throw") && !secondForm:
 		$AnimatedSprite.play("throw")
-	
 	if throwtimer > 0:
 		throwtimer -= delta
-
+	if get_parent().name == "Level3":
+		f_key_disabled = false
 
 func _physics_process(delta):
 	#player movement start
@@ -102,13 +102,16 @@ func _physics_process(delta):
 		shuriken.global_position = $Position2D.global_position
 	# option to transform into second form animation by pressing "X"
 	
-	if Input.is_action_just_pressed("transform") && !secondForm && !thirdForm :
+	if Input.is_action_just_pressed("transform") && !secondForm && !thirdForm && !x_key_disabled :
 		if !naruto3.visible:
 			naruto3.visible = true
-		if HEALTH <80 :
-			HEALTH=HEALTH+20
-		else:
-			HEALTH=100
+		#if HEALTH <80 :
+		#	HEALTH=HEALTH+20
+		#else:
+		HEALTH=300
+		if Input.is_action_pressed("x"):
+			x_key_disabled = true
+			print(x_key_disabled)
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -118,21 +121,22 @@ func _physics_process(delta):
 		secondForm = true
 		thirdForm = false
 		$AnimatedSprite.visible = false
+		$Health.visible=false
 		$healthBar.visible = false
 		if $AnimatedSprite.flip_h == true: 
 			new.set_form_direction()
 		get_parent().add_child(new)
 		new.global_position = $Position2D2.global_position
 		$Timer.start()
+		Input.is_action_just_released("transform")
 		
 	# option to transform into second form animation by pressing "F"
-	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm:
+	if Input.is_action_just_pressed("sage") && !thirdForm && !secondForm && !f_key_disabled:
 		if !sageN.visible:
 			sageN.visible = true
-		if HEALTH <80 :
-			HEALTH=HEALTH+20
-		else:
-			HEALTH=100
+		#if HEALTH <80 :
+		#	HEALTH=HEALTH+20
+		#else:
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -143,12 +147,11 @@ func _physics_process(delta):
 		$healthBar.visible = false
 		$Timer2.start()
 
-
-
-
 	# option to go back to first form after transforming by pressing "Q"
 	if (Input.is_action_just_pressed("goBack") && (secondForm || thirdForm)):
-		#HEALTH=10 
+		HEALTH=100
+		x_key_disabled = true
+		$Health.visible=true
 		add_child(smoke)
 		smoke.get_node("Position2D").position = $Position2D2.position
 		smoke.set_z_index(1000)
@@ -178,7 +181,6 @@ func _physics_process(delta):
 		$Position2D2.global_position = naruto3.global_position
 		naruto3.visible = false
 
-
 func _on_Timer_timeout():
 	new.delete()
 	$Timer.stop()
@@ -194,7 +196,6 @@ func _on_Timer2_timeout():
 	get_parent().add_child(sageN)
 	sageN.global_position = $Position2D.global_position
 
-
 func _on_Hurtbox_area_entered(area):
 	if area.name == "katon": 
 		if HEALTH > 20:
@@ -204,7 +205,6 @@ func _on_Hurtbox_area_entered(area):
 			#var duration = 1
 			#var amplitude = 100
 			#shake_camera(0.3,10)
-
 		elif HEALTH <= 20:
 			dead = true
 			dying_state()
@@ -239,8 +239,3 @@ func shake_camera(duration, amplitude):
 	cam_tween.start()
 	yield(cam_tween, "tween_completed")
 	$Camera2D.offset = Vector2.ZERO
-	
-
-
-func _on_Final_Battle_body_entered():
-	pass # Replace with function body.
