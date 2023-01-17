@@ -11,8 +11,8 @@ config_version=4
 [application]
 
 config/name="Road To Hokage"
-run/main_scene="res://Levels/Level1.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://UI/FirstMenu.tscn"
+config/icon="res://UI/naruto.png"
 
 [autoload]
 
@@ -95,6 +95,11 @@ rasengan={
 sage={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+rasenshuriken={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

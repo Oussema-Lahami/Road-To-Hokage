@@ -61,21 +61,21 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 1021.0
-margin_bottom = 597.0
+margin_right = 1552.0
+margin_bottom = 829.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="Background"]
-margin_right = 1541.0
-margin_bottom = 829.0
+margin_right = 2000.0
+margin_bottom = 1020.0
 stream = ExtResource( 2 )
 autoplay = true
 
 [node name="New" type="ColorRect" parent="."]
-margin_left = 225.0
-margin_top = 133.0
-margin_right = 366.0
-margin_bottom = 167.0
+margin_left = 993.0
+margin_top = 485.0
+margin_right = 1134.0
+margin_bottom = 519.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -95,10 +95,10 @@ __meta__ = {
 }
 
 [node name="Load" type="ColorRect" parent="."]
-margin_left = 224.0
-margin_top = 177.0
-margin_right = 366.0
-margin_bottom = 211.0
+margin_left = 992.0
+margin_top = 529.0
+margin_right = 1134.0
+margin_bottom = 563.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -118,10 +118,10 @@ __meta__ = {
 }
 
 [node name="Quit" type="ColorRect" parent="."]
-margin_left = 224.0
-margin_top = 219.0
-margin_right = 366.0
-margin_bottom = 253.0
+margin_left = 992.0
+margin_top = 571.0
+margin_right = 1134.0
+margin_bottom = 605.0
 color = Color( 0.458824, 0.160784, 0.160784, 1 )
 __meta__ = {
 "_edit_group_": true

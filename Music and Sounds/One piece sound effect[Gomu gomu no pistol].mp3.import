@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One piece sound effect[Gomu gomu no pistol].mp3-f45c4a88196056d0167bfee0fe8de94e.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/One piece sound effect[Gomu gomu no pistol].mp3"
+dest_files=[ "res://.import/One piece sound effect[Gomu gomu no pistol].mp3-f45c4a88196056d0167bfee0fe8de94e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

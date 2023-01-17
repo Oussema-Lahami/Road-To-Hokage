@@ -17,18 +17,18 @@ margin_right = 1927.0
 margin_bottom = 964.0
 
 [node name="VideoPlayer" type="VideoPlayer" parent="ColorRect"]
-margin_left = -14.0
-margin_top = -19.0
-margin_right = 1594.0
-margin_bottom = 830.0
+margin_left = -55.0
+margin_top = -55.0
+margin_right = 2146.0
+margin_bottom = 1062.0
 stream = ExtResource( 2 )
 autoplay = true
 
 [node name="New" type="ColorRect" parent="."]
-margin_left = 58.0
-margin_top = 189.0
-margin_right = 183.0
-margin_bottom = 229.0
+margin_left = 970.0
+margin_top = 439.0
+margin_right = 1095.0
+margin_bottom = 479.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -41,10 +41,10 @@ align = 1
 valign = 1
 
 [node name="MainMenu" type="ColorRect" parent="."]
-margin_left = 58.0
-margin_top = 229.0
-margin_right = 183.0
-margin_bottom = 269.0
+margin_left = 970.0
+margin_top = 479.0
+margin_right = 1095.0
+margin_bottom = 519.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,10 +57,10 @@ align = 1
 valign = 1
 
 [node name="Quit" type="ColorRect" parent="."]
-margin_left = 58.0
-margin_top = 269.0
-margin_right = 183.0
-margin_bottom = 309.0
+margin_left = 970.0
+margin_top = 519.0
+margin_right = 1095.0
+margin_bottom = 559.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -73,11 +73,11 @@ align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1467, 88 )
+position = Vector2( 1793, 160 )
 scale = Vector2( 0.281646, 0.252785 )
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 143, 588 )
+position = Vector2( 301, 740 )
 scale = Vector2( 0.420805, 0.468661 )
 texture = ExtResource( 4 )

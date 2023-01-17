@@ -1,0 +1,339 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://assets/sasuke/Sasuke (2).png" type="Texture" id=1]
+[ext_resource path="res://sasuke_final.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/death sound effect/13.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Music and Sounds/Hurt.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Music and Sounds/Katon Gouka MekkyakuNaruto Sound Effect madara uchiha.mp3" type="AudioStream" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 29.0
+height = 80.0
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 611, 82, 47 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 82, 611, 82, 47 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 164, 611, 82, 47 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 246, 611, 82, 47 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 5, 1512, 53, 76 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 67, 1512, 62, 76 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 141, 1512, 84, 76 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 240, 1512, 83, 76 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 341, 1512, 81, 76 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 422, 1512, 81, 76 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 609, 1132, 64, 76 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 673, 1132, 64, 76 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 737, 1132, 64, 76 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 819, 1132, 63, 76 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 882, 1132, 63, 76 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 945, 1132, 63, 76 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 857, 46, 60 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 46, 857, 46, 60 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 92, 857, 46, 60 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 138, 857, 46, 60 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 184, 857, 46, 60 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 5, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 61, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 117, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 173, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 229, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 285, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 341, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 397, 357, 56, 49 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 5, 273, 36, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 41, 273, 36, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 77, 273, 36, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 113, 273, 36, 64 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "katon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "stance",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=32]
+radius = 133.06
+
+[sub_resource type="CircleShape2D" id=40]
+radius = 186.172
+
+[sub_resource type="CapsuleShape2D" id=34]
+radius = 12.6627
+height = 3.78918
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 8.5, 31.25 )
+
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 63.0005
+height = 471.999
+
+[node name="sasuke_final" type="KinematicBody2D"]
+position = Vector2( 444, 298 )
+collision_layer = 8
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -8, 4 )
+rotation = 0.261799
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 31 )
+animation = "stance"
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="jump" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump"]
+position = Vector2( 0, 1 )
+shape = SubResource( 32 )
+
+[node name="attack" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
+position = Vector2( -3, 1 )
+rotation = 1.57079
+shape = SubResource( 40 )
+
+[node name="Health" type="ColorRect" parent="."]
+margin_left = -5.0
+margin_top = -75.0
+margin_right = 14.0
+margin_bottom = -74.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Red" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.41954, 0.452638, 0.457031, 1 )
+
+[node name="Bar" type="ColorRect" parent="Health"]
+margin_left = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+color = Color( 0.262745, 0.941176, 0.0941176, 1 )
+
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( -31, -2 )
+collision_mask = 6
+gravity = 90.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+modulate = Color( 0.705882, 0.0666667, 0.0666667, 1 )
+position = Vector2( 32, 71 )
+rotation = -1.56918
+scale = Vector2( 1.26305, 3.02231 )
+shape = SubResource( 34 )
+one_way_collision_margin = 2.0
+
+[node name="deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 12.0
+pitch_scale = 0.16
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 11.965
+
+[node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 37.5, 55.25 )
+shape = SubResource( 39 )
+
+[node name="katon" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="katon"]
+position = Vector2( 0, 3 )
+rotation = 1.57079
+shape = SubResource( 41 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="body_entered" from="jump" to="." method="_on_jump_body_entered"]
+[connection signal="body_exited" from="jump" to="." method="_on_jump_body_exited"]
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="katon" to="." method="_on_katon_body_entered"]
+[connection signal="body_exited" from="katon" to="." method="_on_katon_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="Hitbox"]
+[editable path="Hurtbox"]
