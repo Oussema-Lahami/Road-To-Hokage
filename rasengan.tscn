@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/naruto1/Naruto.png" type="Texture" id=1]
 [ext_resource path="res://rasengan.gd" type="Script" id=2]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -49,6 +50,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=9]
 radius = 27.8927
 
+[sub_resource type="CircleShape2D" id=10]
+radius = 35.3333
+
 [node name="rasengan" type="Area2D"]
 position = Vector2( 139, 112 )
 scale = Vector2( 0.5, 0.5 )
@@ -69,4 +73,13 @@ position = Vector2( -5, 1 )
 position = Vector2( 0.5, -1 )
 scale = Vector2( 1.05, 1.1 )
 
+[node name="hitbox" parent="." instance=ExtResource( 3 )]
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2( -5.33333, 0 )
+shape = SubResource( 10 )
+
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+
+[editable path="hitbox"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/naruto1/sageNaruto.png" type="Texture" id=1]
 [ext_resource path="res://sageMode.gd" type="Script" id=2]
 [ext_resource path="res://Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://Music and Sounds/Naruto - Rasengan (voice).mp3" type="AudioStream" id=4]
-[ext_resource path="res://Music and Sounds/futon rasen shuriken (sound effect).mp3" type="AudioStream" id=5]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -112,6 +112,10 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=18]
 height = 18.0
 
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 3.33333
+height = 38.6667
+
 [node name="sageMode" type="KinematicBody2D"]
 position = Vector2( 177, 113 )
 scale = Vector2( 1.5, 1.5 )
@@ -147,15 +151,15 @@ stream = ExtResource( 4 )
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 1.7
 
-[node name="Timer3" type="Timer" parent="."]
+[node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+collision_layer = 4
 
-[node name="Timer4" type="Timer" parent="."]
-wait_time = 2.5
-
-[node name="shuriken" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 2.66666, -3.33334 )
+scale = Vector2( 2.4, 1 )
+shape = SubResource( 19 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
-[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
-[connection signal="timeout" from="Timer4" to="." method="_on_Timer4_timeout"]
+
+[editable path="Hurtbox"]
